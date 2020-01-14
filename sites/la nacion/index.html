@@ -1,0 +1,2394 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+
+<script>
+    
+    
+    var varnish = 'srvolnet8v,front08,B'.split(/,/gi);
+
+    Array.from = Array.from || (function () { var a = Object.prototype.toString, b = function (f) { return 'function' == typeof f || '[object Function]' === a.call(f) }, c = function (f) { var g = +f; return isNaN(g) ? 0 : 0 != g && isFinite(g) ? (0 < g ? 1 : -1) * Math.floor(Math.abs(g)) : g }, d = Math.pow(2, 53) - 1, e = function (f) { var g = c(f); return Math.min(Math.max(g, 0), d) }; return function (g) { var h = this, i = Object(g); if (null == g) throw new TypeError('Array.from requires an array-like object - not null or undefined'); var l, j = 1 < arguments.length ? arguments[1] : void 0; if ('undefined' != typeof j) { if (!b(j)) throw new TypeError('Array.from: when provided, the second argument must be a function'); 2 < arguments.length && (l = arguments[2]) } for (var p, m = e(i.length), n = b(h) ? Object(new h(m)) : Array(m), o = 0; o < m;)p = i[o], n[o] = j ? 'undefined' == typeof l ? j(p, o) : j.call(l, p, o) : p, o += 1; return n.length = m, n } }());
+
+    let metaRefresh = localStorage.getItem("CDmetaRefresh");
+    let usuarioLogeado = localStorage.getItem("CDusuarioLogeado");
+    let credentialType = localStorage.getItem("CDcredentialType");
+    let payUser = localStorage.getItem("CDpayUser");
+    let suscriptorType = localStorage.getItem("CDsuscriptorType");
+    let userId = localStorage.getItem("CDuserId");
+    let usuarioRegistrado = localStorage.getItem("CDusuarioRegistrado");
+    //   let notasLeidas = localStorage.getItem("CDnotasLeidas");
+    let countNotas = localStorage.getItem("countNotas");
+    let naveggObj = {};
+    let navegData = localStorage.getItem("nvgpersona18894");
+    if (navegData != null) {
+        naveggObj = JSON.parse(navegData);
+    }
+
+    metaRefresh = metaRefresh != null ? "yes" : "no";
+    usuarioLogeado = usuarioLogeado ? usuarioLogeado : "no";
+    credentialType = credentialType ? credentialType : "N/A";
+    payUser = payUser ? payUser : "no";
+    suscriptorType = suscriptorType ? suscriptorType : "N/A";
+    userId = userId ? userId : "N/A";
+    usuarioRegistrado = usuarioRegistrado ? usuarioRegistrado : "no";
+    //notasLeidas = notasLeidas ? notasLeidas : 0;
+    countNotas = countNotas ? countNotas : 0;
+
+    if (metaRefresh === "yes") {
+        localStorage.removeItem("CDmetaRefresh");
+    }
+
+    var dataLayer = [
+        {
+            "metarefresh": metaRefresh,
+            "pageType": "home",
+            "mainTag": "N/A",
+            "tags": ["N/A"],
+            "autor": "N/A",
+            "seccion": "N/A",
+            "longitud": "0",
+            "formato": "N/A",
+            "genero": "N/A",
+            "tematica": "N/A",
+            "valor": "N/A",
+            "nota-pos": 'home' === 'nota' ? "," + countNotas : 'N/A',
+            "subcategorias": "N/A",
+            "TeaserPremium": ""
+        }
+    ];
+
+    
+    dataLayer[0].front = varnish[0] || "N/A";
+    dataLayer[0].host = varnish[1] || "N/A";
+    dataLayer[0].cache = "LNC-FRONT11";
+    dataLayer[0].build = "9.0.26957-HEAD-312a02fbd";
+    
+
+    dataLayer[0].usuarioLogeado = usuarioLogeado;
+    dataLayer[0].credentialType = credentialType;
+    dataLayer[0].payUser = payUser;
+    dataLayer[0].suscriptorType = suscriptorType;
+    dataLayer[0].userId = userId;
+    dataLayer[0].usuarioRegistrado = usuarioRegistrado;
+    ///TODO : Pasar a configuracion, no se hace ahora porq se pide con urgencia.
+    var navegItems = ["age", "career", "city", "country", "income", "education", "gender", "industry", "interest", "marital"];
+    for (var nv = 0; nv < navegItems.length; nv++) {
+        var itemProp = navegItems[nv];
+
+        if (naveggObj.hasOwnProperty(itemProp)) {
+            dataLayer[0][itemProp] = naveggObj[itemProp];
+        } else {
+            dataLayer[0][itemProp] = "N/A";
+        }
+    }
+
+    if('home' === "nota"){
+        dataLayer[0].notasLeidas = countNotas;
+        // dataLayer[0].countNotas = countNotas;
+    }
+
+
+    function clean(obj) {
+        var propNames = Object.getOwnPropertyNames(obj);
+        for (let i = 0; i < propNames.length; i++) {
+            let propName = propNames[i];
+            if (obj[propName] === "" || obj[propName] === null || obj[propName] === undefined || obj[propName] === "0") {
+                delete obj[propName];
+            }
+        }
+    }
+    clean(dataLayer[0]);
+</script>
+
+
+    <!-- Google Tag Manager -->
+<script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-GHV6');</script>
+ <!-- End Google Tag Manager -->
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+<meta name="theme-color" content="#ffffff">
+<link rel="manifest" href="/manifest.json">
+    <link rel="dns-prefetch" href="//static.glanacion.com">
+<link rel="dns-prefetch" href="//cdn.livefyre.com">
+<link rel="dns-prefetch" href="//bucket.glanacion.com">
+<link rel="dns-prefetch" href="//bucket1.glanacion.com">
+<link rel="dns-prefetch" href="//bucket2.glanacion.com">
+<link rel="dns-prefetch" href="//bucket3.glanacion.com">
+<link rel="dns-prefetch" href="//ingresar.lanacion.com.ar">
+<link rel="dns-prefetch" href="//api-ingresar.lanacion.com.ar">
+<link rel="dns-prefetch" href="//api-paywall.lanacion.com.ar">
+<link rel="dns-prefetch" href="//wsresultados.lanacion.com.ar">
+<link rel="dns-prefetch" href="//api-contenidos.lanacion.com.ar">
+<link rel="dns-prefetch" href="//contenidos.lanacion.com.ar">
+    <meta name="msApplication-ID" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <meta name="copyright" content="LA NACION">
+    <meta name="title" content="Últimas noticias de Argentina y el mundo - LA NACION">
+    <meta name="description" content="LA NACION - Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!">
+    <meta name="keywords" content="la nación, diario, argentina, noticias, información, política, economía, finanzas, deportes, futbol, tenis, rugby, basquetbol, voleibol, formula 1, cultura, espectáculos, cine, teatro, televisión, humor, juegos, horóscopo, clima, pronostico, mapa, vinos, restaurantes, quiniela, loteria, nik, criptograma literario, liniers, internacional, el mundo, ciencia, últimas noticias, clasificados">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Últimas noticias de Argentina y el mundo - LA NACION">
+    <meta property="og:description" content="Información confiable en Internet. Noticias de Argentina y del mundo - ¡Informate ya!">
+    <meta property="og:url" content="http://www.lanacion.com.ar">
+
+    <meta name="application-name" content="LA NACION">
+    <meta name="msapplication-starturl" content="http://www.lanacion.com.ar">
+    <meta name="msapplication-tooltip" content="Noticias actualizadas las 24 hs.">
+    <meta name="msapplication-window" content="width=800;height=600">
+    <meta name="cXenseParse:pageclass" content="frontpage">
+
+        <meta name="msapplication-task" content="name=Ultimas noticias;action-uri=http://www.lanacion.com.ar/ultimas-noticias;icon-uri=http://www.lanacion.com.ar/item1.ico">
+        <meta name="msapplication-task" content="name=Tránsito;action-uri=https://www.lanacion.com.ar/transito;icon-uri=http://www.lanacion.com.ar/item2.ico">
+        <meta name="msapplication-task" content="name=Pronóstico;action-uri=http://servicios.lanacion.com.ar/informacion-general/pronostico;icon-uri=http://www.lanacion.com.ar/item3.ico">
+        <meta name="msapplication-task" content="name=Horóscopo;action-uri=https://www.lanacion.com.ar/horoscopo;icon-uri=http://www.lanacion.com.ar/item4.ico">
+    
+
+<script src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+    function testQueryString() {
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('adstest') == "true") {
+            return "true";
+        }
+        return "false";
+    }
+
+    function navegg() {
+        //try {
+        //    if (window.localStorage.getItem("nvgpersona18894")) {
+        //        window.NVG_QRY = {};
+        //        var x, name, col, persona = JSON.parse(window.localStorage.getItem("nvgpersona18894"));
+        //        for (col in persona) {
+        //            if (typeof persona[col] == "object") {
+        //                persona[col] = persona[col].join("|");
+        //            }
+        //        }
+        //        window.NVG_QRY = persona;
+        //    }
+        //} catch (e) {
+        //    console.error(e);
+        //}
+        (function (w) {
+            try {
+                var name, col, persona = JSON.parse(window.localStorage.getItem("nvgpersona18894"));
+                for (col in persona) {
+                    name = "nvg_" + col;
+                    name = name.substring(0, 10);
+                    if (typeof (googletag) == "object")
+                        googletag.pubads().setTargeting(name, persona[col]);
+                    if (typeof (GA_googleAddAttr) == "function")
+                        GA_googleAddAttr(name, persona[col]);
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        })(window);
+    }
+
+    function prebidConfig() {
+        
+
+    }
+
+    function leerCookie(nombrecookie) {
+        var laCookie = '' + document.cookie;
+        var indice = laCookie.indexOf(nombrecookie);
+
+        if (indice == -1 || nombrecookie == '') {
+            return '';
+        }
+
+        var indiceUno = laCookie.indexOf(';', indice);
+        var indiceDos = laCookie.indexOf('&', indice);
+
+        if (((indiceUno > indiceDos) && (indiceDos != -1)) || ((indiceUno == -1) && (indiceDos != -1))) {
+            indiceUno = indiceDos;
+        }
+
+        if (indiceUno == -1) {
+            indiceUno = laCookie.length;
+        }
+        return unescape(laCookie.substring(indice + nombrecookie.length + 1, indiceUno));
+    }
+
+    function getBannersConfig() {
+        let userSuscriptorType = leerCookie("ProductoPremiumId").split(",");
+        userSuscriptorType.forEach(function(element, index) {
+            if (element == "")
+                userSuscriptorType.splice(index, 1);
+        });
+
+        for (let suscriptorId of userSuscriptorType) {
+            switch (window.DFP.ads.deviceResolution) {
+            case "_dsk":
+                hideBannerByUserAndSection(suscriptorId.trim(), "home", "Desktop");
+                break;
+                case "_tab":
+                hideBannerByUserAndSection(suscriptorId.trim(), "home", "Tablet");
+                break;
+                case "_mob":
+                hideBannerByUserAndSection(suscriptorId.trim(), "home", "Mobile");
+                break;
+                }
+                }
+                }
+                function capitalizeFirstLetter(string) {
+                return string.charAt(0).toUpperCase() + string.slice(1);
+                }
+
+                function hideBannerByUserAndSection(userId, section, dispositivo) {
+                let configBanner = {"Desktop":{"Nota":[{"UserType":"2","Banners":["caja1_dsk","middle_teads_dsk","inread_dsk","adhesion_dsk","1x1_dsk"]},{"UserType":"4","Banners":["caja1_dsk","middle_teads_dsk","inread_dsk","adhesion_dsk","1x1_dsk"]},{"UserType":"6","Banners":["caja1_dsk","middle_teads_dsk","inread_dsk","adhesion_dsk","1x1_dsk"]}],"Home":[{"UserType":"2","Banners":["adhesion_dsk","1x1_dsk"]},{"UserType":"4","Banners":["adhesion_dsk","1x1_dsk"]},{"UserType":"6","Banners":["adhesion_dsk","1x1_dsk"]}],"Acumulado":[{"UserType":"2","Banners":["adhesion_dsk","1x1_dsk"]},{"UserType":"4","Banners":["adhesion_dsk","1x1_dsk"]},{"UserType":"6","Banners":["adhesion_dsk","1x1_dsk"]}],"Content_lab":[{"UserType":"2","Banners":[]},{"UserType":"4","Banners":[]},{"UserType":"6","Banners":[]}]},"Tablet":{"Nota":[{"UserType":"2","Banners":["middle_teads_tab","inread_tab","1x1_tab"]},{"UserType":"4","Banners":["middle_teads_tab","inread_tab","1x1_tab"]},{"UserType":"6","Banners":["middle_teads_tab","inread_tab","1x1_tab"]}],"Home":[{"UserType":"2","Banners":["adhesion_tab","1x1_tab"]},{"UserType":"4","Banners":["adhesion_tab","1x1_tab"]},{"UserType":"6","Banners":["adhesion_tab","1x1_tab"]}],"Acumulado":[{"UserType":"2","Banners":["1x1_tab"]},{"UserType":"4","Banners":["1x1_tab"]},{"UserType":"6","Banners":["1x1_tab"]}],"Content_lab":[{"UserType":"2","Banners":[]},{"UserType":"4","Banners":[]},{"UserType":"6","Banners":[]}]},"Mobile":{"Nota":[{"UserType":"2","Banners":["middle_teads_mob","inread_mob","1x1_mob"]},{"UserType":"4","Banners":["middle_teads_mob","inread_mob","1x1_mob"]},{"UserType":"6","Banners":["middle_teads_mob","inread_mob","1x1_mob"]}],"Home":[{"UserType":"2","Banners":["adhesion_mob","1x1_mob"]},{"UserType":"4","Banners":["adhesion_mob","1x1_mob"]},{"UserType":"6","Banners":["adhesion_mob","1x1_mob"]}],"Acumulado":[{"UserType":"2","Banners":["1x1_mob"]},{"UserType":"4","Banners":["1x1_mob"]},{"UserType":"6","Banners":["1x1_mob"]}],"Content_lab":[{"UserType":"2","Banners":[]},{"UserType":"4","Banners":[]},{"UserType":"6","Banners":[]}]}};
+                configBanner = configBanner[dispositivo][capitalizeFirstLetter(section)];
+
+                configBanner.forEach(function(data) {
+                if (data.UserType == userId) {
+                window.DFP.ads.bannersOcultar += data.Banners;
+                }
+                });
+                }
+
+                function showBannerResolution(bannerId) {
+                //  && (window.EP.ads.bannersOcultar == "" || window.EP.ads.bannersOcultar.indexOf(bannerId) === -1)) {
+
+                if (bannerId.indexOf(window.DFP.ads.deviceResolution) !== -1 && (window.DFP.ads.bannersOcultar == "" || window.DFP.ads.bannersOcultar.indexOf(bannerId) === -1)) {
+                return true;
+                }
+                return false;
+                }
+
+
+
+                function tabIsActive() {
+                var hidden, visibilityChange;
+                if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
+                hidden = "hidden";
+                visibilityChange = "visibilitychange";
+                } else if (typeof document.msHidden !== "undefined") {
+                hidden = "msHidden";
+                visibilityChange = "msvisibilitychange";
+                } else if (typeof document.webkitHidden !== "undefined") {
+                hidden = "webkitHidden";
+                visibilityChange = "webkitvisibilitychange";
+                }
+
+                if (document[hidden]) {
+                window.DFP.ads.tabIsActive = "false";
+                } else {
+                window.DFP.ads.tabIsActive = "true";
+                }
+
+                }
+
+                function tabRegisterEvent() {
+                var hidden, visibilityChange;
+                if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
+                hidden = "hidden";
+                visibilityChange = "visibilitychange";
+                } else if (typeof document.msHidden !== "undefined") {
+                hidden = "msHidden";
+                visibilityChange = "msvisibilitychange";
+                } else if (typeof document.webkitHidden !== "undefined") {
+                hidden = "webkitHidden";
+                visibilityChange = "webkitvisibilitychange";
+                }
+
+                if (typeof document.addEventListener === "undefined" || hidden === undefined) {
+                console.log("This demo requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API.");
+                } else {
+                // Handle page visibility change
+                document.addEventListener(visibilityChange, function() {
+                if (document[hidden]) {
+                window.DFP.ads.tabIsActive = "false";
+                } else {
+                window.DFP.ads.tabIsActive = "true";
+                }
+                }, false);
+                }
+                }
+
+                </script>
+<script>
+    const scrollToPoint = (to, duration) => {
+        var start = document.body.scrollTop || document.documentElement.scrollTop,
+            change = to - start,
+            currentTime = 0,
+            increment = 20;
+
+        var animateScroll = function () {
+            currentTime += increment;
+            const val = Math.easeInOutQuad(currentTime, start, change, duration);
+            scroll(0, val)
+            if (currentTime < duration) {
+                setTimeout(animateScroll, increment);
+            }
+        };
+        animateScroll();
+    }
+
+    Math.easeInOutQuad = function (t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    };
+
+    const initMegaTopDesktop = () => {
+        const anchoPantalla = window.innerWidth;
+        if (showBannerResolution('megatop_dsk') && anchoPantalla >= 1024) {
+            const altoPantalla = window.innerHeight || document.documentElement.clientHeight
+            let clickeoBoton = false;
+            const megatopContainerDsk = document.getElementById('megatop-container-dsk')
+            megatopContainerDsk.style.height = 0;
+            megatopContainerDsk.style.display = 'block';
+            megatopContainerDsk.style.transition = 'height 1000ms ease-in-out';
+            setTimeout(() => {
+                megatopContainerDsk.style.height = altoPantalla + 'px';
+            }, 0)
+
+            document.getElementById('btn-bajar-megatop-dsk').addEventListener('click', function () {
+                scrollToPoint(megatopContainerDsk.clientHeight + 1, 800)
+                clickeoBoton = true;
+            })
+
+            setTimeout(() => {
+                const positionMain = megatopContainerDsk.clientHeight + 1
+                if (!clickeoBoton && window.scrollY < positionMain) {
+                    scrollToPoint(positionMain, 800)
+                }
+            }, 10000)
+        }
+    }
+
+    const initMegaTopMobile = () => {
+        const anchoPantalla = window.innerWidth;
+        if (showBannerResolution('megatop_mob') && anchoPantalla <= 639) {
+            const altoPantalla = window.innerHeight || document.documentElement.clientHeight
+            const megatopContainerMob = document.getElementById('megatop-container-mob')
+            megatopContainerMob.style.height = 0;
+            megatopContainerMob.style.display = 'block';
+            megatopContainerMob.style.transition = 'height 1000ms ease-in-out';
+            setTimeout(() => {
+                megatopContainerMob.style.height = altoPantalla + 'px';
+            }, 0)
+
+            let clickeoBoton = false;
+
+            document.getElementById('btn-bajar-megatop-mob').addEventListener('click', function () {
+                scrollToPoint(megatopContainerMob.clientHeight + 1, 800)
+                clickeoBoton = true;
+            })
+
+            setTimeout(() => {
+                const positionMain = megatopContainerMob.clientHeight + 1
+                if (!clickeoBoton && window.scrollY < positionMain) {
+                    scrollToPoint(positionMain, 800)
+                }
+            }, 10000)
+
+        }
+    }
+</script>
+
+<script language="JavaScript" type="text/javascript">
+    function cerrarAdhesion(adhesion) {
+        function f_styles(element, styles) {
+            "use strict";
+            Object.keys(styles).forEach(function (x) {
+                element.style[x] = styles[x];
+            });
+        }
+        var defaultButton = "https://i.e-planning.net/esb/4/1/3fb8/ea7d639f35554c9b/close.png";
+        imgBtnCerrar = document.createElement("img");
+        f_styles(imgBtnCerrar, { "width": "20px", "height": "20", "z-index": "9999", "top": "0px", "position": "absolute", "right": "0px", "left": "auto", "cursor": "pointer" });
+        imgBtnCerrar.src = defaultButton;
+
+        imgBtnCerrar.onclick = function () {
+            document.querySelector('#' + adhesion).style.display = "none";
+        };
+        document.querySelector('#' + adhesion).append(imgBtnCerrar);
+    }
+
+
+
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+
+    window.DFP = {};
+    window.DFP.ads = {};
+    window.DFP.ads.bannersOcultar = "";
+    window.DFP.ads.sitioId = "";
+    tabRegisterEvent();
+    tabIsActive();
+
+
+    let check = false;
+    (function (a) { if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4)) || /Tablet|iPad/i.test(a)) check = true; })(navigator.userAgent || navigator.vendor || window.opera);
+    let tablet = false;
+    if (screen.width >= 1023) { tablet = true; }
+    if (screen.height >= 1023) { tablet = true; }
+    let metaRefreshKv = localStorage.getItem("CDmetaRefresh");
+    metaRefreshKv = metaRefreshKv != null ? "true" : "false";
+    if (check) {
+        if (tablet) {
+            window.DFP.ads.deviceResolution = "_tab";
+            var _1x1_tab, cabezal_tab, middle1_tab, adhesion_tab, logo_tag_tab;
+            googletag.cmd.push(function () {
+                _1x1_tab = googletag.defineSlot('/133919216/la_nacion_tablet/Home/1x1_tab', [1, 1], '1x1_tab').addService(googletag.pubads());
+                logo_tag_tab = googletag.defineSlot('/133919216/la_nacion_tablet/Home/logo_tag_tab', [1, 1], 'logo_tag_tab').addService(googletag.pubads());
+                cabezal_tab = googletag.defineSlot('/133919216/la_nacion_tablet/Home/cabezal_tab', [[728, 90], [1, 1]], 'cabezal_tab').addService(googletag.pubads());
+                adhesion_tab = googletag.defineSlot('/133919216/la_nacion_tablet/Home/adhesion_tab', [728, 90], 'adhesion_tab').addService(googletag.pubads());
+                middle1_tab = googletag.defineSlot('/133919216/la_nacion_tablet/Home/middle_1_tab', [[728, 90], [1, 1]], 'middle1_tab').addService(googletag.pubads());
+                googletag.pubads().collapseEmptyDivs();
+                googletag.pubads().addEventListener('slotRenderEnded', function (event) {
+                    if (event.slot === adhesion_tab) {
+                        cerrarAdhesion('adhesion_tab');
+                    }
+                });
+                googletag.pubads().setTargeting('metarefresh', metaRefreshKv);
+                googletag.pubads().setTargeting('tabIsActive', window.DFP.ads.tabIsActive);
+                googletag.pubads().setTargeting('adstest', testQueryString());
+                googletag.pubads().setTargeting('seccion', "acumulado");
+                googletag.pubads().setTargeting('sitio', "lanacion");
+                //googletag.pubads().set("page_url", "https://www.lanacion.com.ar/");
+                googletag.pubads().enableSingleRequest();
+
+                googletag.pubads().disableInitialLoad();
+                navegg();
+                googletag.enableServices();
+
+            });
+        } else {
+
+            window.DFP.ads.deviceResolution = "_mob";
+            var _1x1_mob, sticky1_mob, sticky2_mob, adhesion_mob, logo_tag_mob, caja1_mob, caja2_mob, megatop_mob;
+            googletag.cmd.push(function () {
+                megatop_mob = googletag.defineSlot('/133919216/la_nacion_mobile/Home/megatop_mob', [[320, 480], 'fluid'], 'megatop_mob').addService(googletag.pubads());
+                _1x1_mob = googletag.defineSlot('/133919216/la_nacion_mobile/Home/1x1_mob', [1, 1], '1x1_mob').addService(googletag.pubads());
+                logo_tag_mob = googletag.defineSlot('/133919216/la_nacion_mobile/Home/logo_tag_mob', [1, 1], 'logo_tag_mob').addService(googletag.pubads());
+                sticky1_mob = googletag.defineSlot('/133919216/la_nacion_mobile/Home/sticky1_mob', [[320, 50], [320, 100], [1, 1]], 'sticky').addService(googletag.pubads());
+                sticky2_mob = googletag.defineSlot('/133919216/la_nacion_mobile/Home/sticky2_mob', [[320, 100], [320, 50], [1, 1]], 'sticky_2').addService(googletag.pubads());
+                adhesion_mob = googletag.defineSlot('/133919216/la_nacion_mobile/Home/adhesion_mob', [320, 50], 'adhesion_mob').addService(googletag.pubads());
+                caja1_mob = googletag.defineSlot('/133919216/la_nacion_mobile/Home/caja1_mob', [[300, 450], [320, 50], [300, 250], [320, 100], [1, 1]], 'caja1_mob').addService(googletag.pubads());
+                caja2_mob = googletag.defineSlot('/133919216/la_nacion_mobile/Home/caja2_mob', [[300, 250], [300, 450], [320, 50], [320, 100],[1, 1]], 'caja2_mob').addService(googletag.pubads());
+
+
+                googletag.pubads().addEventListener('slotRenderEnded', function (event) {
+                    if (event.slot === adhesion_mob) {
+                        cerrarAdhesion('adhesion_mob');
+                    }
+
+                    if (event.slot === megatop_mob && event.slot.getHtml()) {
+                        initMegaTopMobile()
+                    }
+                });
+
+                googletag.pubads().collapseEmptyDivs();
+                googletag.pubads().setTargeting('metarefresh', metaRefreshKv);
+                googletag.pubads().setTargeting('tabIsActive', window.DFP.ads.tabIsActive);
+                googletag.pubads().setTargeting('adstest', testQueryString());
+                googletag.pubads().setTargeting('seccion', "acumulado");
+                googletag.pubads().setTargeting('sitio', "lanacion");
+                //googletag.pubads().set("page_url", "https://www.lanacion.com.ar/");
+                googletag.pubads().enableSingleRequest();
+                // Disable initial load, we will use refresh() to fetch ads.
+                // Calling this function means that display() calls just
+                // register the slot as ready, but do not fetch ads for it.
+                googletag.pubads().disableInitialLoad();
+                navegg();
+                googletag.enableServices();
+            });
+
+        }
+    } else {
+        window.DFP.ads.deviceResolution = "_dsk";
+        var _1x1_dsk, logo_tag_dsk, cabezal_top_dsk, cabezal_dsk, cabezal_inferior_dsk, megalateral_dsk, adhesion_dsk, billboard_dsk, megatop_dsk;
+        googletag.cmd.push(function () {
+            megatop_dsk = googletag.defineSlot('/133919216/la_nacion_desktop/Home/megatop_dsk', [[800, 600], 'fluid'], 'megatop_dsk').addService(googletag.pubads());
+            _1x1_dsk = googletag.defineSlot('/133919216/la_nacion_desktop/Home/1x1_dsk', [1, 1], '1x1_dsk').addService(googletag.pubads());
+            logo_tag_dsk = googletag.defineSlot('/133919216/la_nacion_desktop/Home/logo_tag_dsk', [1, 1], 'logo_tag_dsk').addService(googletag.pubads());
+            cabezal_top_dsk = googletag.defineSlot('/133919216/la_nacion_desktop/Home/cabezal_top_dsk', [[920, 100], [728, 90], [1260, 100], [970, 90], [1, 1]], 'cabezal_top_dsk').addService(googletag.pubads());
+            cabezal_dsk = googletag.defineSlot('/133919216/la_nacion_desktop/Home/cabezal_dsk', [[920, 100], [728, 90], [1, 1]], 'cabezal_dsk').addService(googletag.pubads());
+            cabezal_inferior_dsk = googletag.defineSlot('/133919216/la_nacion_desktop/Home/cabezal_inferior_dsk', [[728, 90], [920, 170], [1, 1]], 'cabezal_inferior_dsk').addService(googletag.pubads());
+            megalateral_dsk = googletag.defineSlot('/133919216/la_nacion_desktop/Home/megalateral_dsk', [[120, 600], [250, 600], [160, 600]], 'megalateral_dsk').addService(googletag.pubads());
+            adhesion_dsk = googletag.defineSlot('/133919216/la_nacion_desktop/Home/adhesion_dsk', [[920, 100], [728, 90]], 'adhesion_dsk').addService(googletag.pubads());
+            billboard_dsk = googletag.defineSlot('/133919216/la_nacion_desktop/Home/billboard_dsk', [[728, 90], [920, 250], [1, 1]], 'billboard_dsk').addService(googletag.pubads());
+
+            googletag.pubads().addEventListener('slotRenderEnded', function (event) {
+                if (event.slot === adhesion_dsk) {
+                    cerrarAdhesion('adhesion_dsk');
+                }
+                if (event.slot === megatop_dsk && event.slot.getHtml()) {
+                    initMegaTopDesktop()
+                } 
+            });
+            var mapping = googletag.sizeMapping().
+                addSize([0, 0], [[920, 100], [728, 90], [970, 90]]).
+                addSize([1260, 100], [[1260, 100]]).
+                addSize([800, 600], 'fluid').
+                build();
+            cabezal_top_dsk.defineSizeMapping(mapping);
+
+            googletag.pubads().collapseEmptyDivs();
+            googletag.pubads().setTargeting('metarefresh', metaRefreshKv);
+            googletag.pubads().setTargeting('tabIsActive', window.DFP.ads.tabIsActive);
+            googletag.pubads().setTargeting('adstest', testQueryString());
+            googletag.pubads().setTargeting('seccion', "acumulado");
+            googletag.pubads().setTargeting('sitio', "lanacion");
+            //googletag.pubads().set("page_url", "https://www.lanacion.com.ar/");
+            googletag.pubads().enableSingleRequest();
+
+            // Disable initial load, we will use refresh() to fetch ads.
+            // Calling this function means that display() calls just
+            // register the slot as ready, but do not fetch ads for it.
+            googletag.pubads().disableInitialLoad();
+            navegg();
+            googletag.enableServices();
+        });
+    }
+
+
+    getBannersConfig();
+</script>
+
+    <script>
+        window.LN = {};
+        window.LN.tipoPaginaBanner = "home";
+    </script>
+
+
+
+    
+
+
+
+    <script>window.config={"Statics":{"BucketUrl":"//bucket{nro}.glanacion.com","DominioUrl":"//www.lanacion.com.ar/","GaleriaUrl":"//api-contenidos.lanacion.com.ar/json/V2/galeria/","FacebookId":205326199490321.0,"LoginUrl":"https://ingresar.lanacion.com.ar/ingresar/D/1/?callback=","SitioSeguroRegistracion":"https://ingresar.lanacion.com.ar","LogoutUrl":"/logout.html","APILoginUrl":"https://api-ingresar.lanacion.com.ar","DominioCookie":".lanacion.com.ar","ApiRankingSitioUrl":"acumulado/ranking-sitio-","ApiContenidoUrlRoot":"//api-contenidos.lanacion.com.ar/json/v2/","BucketClubLnUrl":"//bucket.glanacion.com/Club.LN/anexos/fotos","ApiPromoClubLnUrl":"clubLn/establecimientos/activos","ApiUltimasNoticias":"sitio/1?ultimas_noticias=1","TableroUrl":"//wsresultados.lanacion.com.ar/service1.svc/","SiteIdLF":356483,"ApiLiveFireUrl":"https://{livefyre-domainName}.bootstrap.fyre.co/api/v3.0/hottest/?site={SiteId_Livefyre}&number={cantidad de notas}","BuscadorUrl":"//buscar.lanacion.com.ar/","CookieExpiration":8640000000.0,"ReloginValidation":8121600000.0,"ApiPaywall":"https://api-paywall.lanacion.com.ar","ApiSuscripcion":"/1/SuscripcionV1/ObtenerSuscripcionDigitalAnalytics","BasePath":"//static.glanacion.com/v2/ln","ContenidosUrlRoot":"//contenidos.lanacion.com.ar","ReloginUrl":"/relogin.html","ApiNavAnonimaHome":"//api-contenidos.lanacion.com.ar/json/v2/acumulado/refererHome","ApiNavAnonimaExt":"//api-contenidos.lanacion.com.ar/json/v2/acumulado/refererExterno","CookieExpirationNotifications":2419200000.0,"ApiNotificaciones":"https://notificaciones.lanacion.com.ar/api/","topicName":"pwatemp","ApiContenidoUrlRaiz":"//api-contenidos.lanacion.com.ar/json/"},"Sitio":{"Id":1},"Firebase":{"apiKey":"AIzaSyCFxG5eKZiyU1DDlg7yZw4JzblfO6pc0m4","authDomain":"lanacion-92a91.firebaseapp.com","databaseURL":"https://lanacion-92a91.firebaseio.com","messagingSenderId":221085116662.0,"projectId":"lanacion-92a91","storageBucket":"lanacion-92a91.appspot.com"}}</script>
+
+    <title>Últimas noticias de Argentina y el mundo - LA NACION</title>
+
+<script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "name": "La Nacion",
+    "url": "https://www.lanacion.com.ar",
+    "sameAs": [
+    "https://www.facebook.com/lanacion/",
+    "https://www.instagram.com/lanacioncom/",
+    "https://twitter.com/LANACION"
+    ]
+    }
+</script>
+<script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "https://www.lanacion.com.ar/",
+    "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://buscar.lanacion.com.ar/{search_term}",
+    "query-input": "required name=search_term"
+    }
+    }
+</script>
+
+    <link href="//static.glanacion.com/v2/ln/css/3ae2ee36f33ff1022cced94c714a76c8.min.css" rel="stylesheet">
+    
+
+<script>window.render=true;</script></head>
+<body class="">
+    <!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-GHV6" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+    
+
+
+
+<input id="fechaGeneracionHome" type="hidden" value="14/01/2020 03:11:07 p.m.">
+
+<div class="bn-megatop" id="megatop-container-dsk" style="display:none;">
+    <nav id="btn-bajar-megatop-dsk">
+        PUBLICIDAD <span class="bajar_megatop">BAJAR AL SITIO</span>
+    </nav>
+    <div id="megatop_dsk">
+        <script>
+            const anchoMinimo = window.innerWidth >= 1024
+            if (showBannerResolution('megatop_dsk') && anchoMinimo) {
+                googletag.cmd.push(function () {
+                    googletag.display('megatop_dsk');
+                    googletag.pubads().refresh([megatop_dsk]);
+                });
+            }
+        </script>
+    </div>
+</div>
+<div class="bn-megatop" id="megatop-container-mob" style="display:none;">
+    <nav id="btn-bajar-megatop-mob">
+        PUBLICIDAD <span class="bajar_megatop">BAJAR AL SITIO</span>
+    </nav>
+    <div id="megatop_mob">
+        <script>
+            const anchoMaximo = window.innerWidth <= 639
+            if (showBannerResolution('megatop_mob') && anchoMaximo) {
+                googletag.cmd.push(function () {
+                    googletag.display('megatop_mob');
+                    googletag.pubads().refresh([megatop_mob]);
+                });
+            }
+        </script>
+    </div>
+</div>    <aside id="bn-header" class="content-bnheader-megacabezal-top">
+        <div class="banner" id="cabezal_top_dsk">
+            <script>
+                if (showBannerResolution('cabezal_top_dsk')) {
+                    googletag.cmd.push(function () {
+                        googletag.display('cabezal_top_dsk'); googletag.pubads().refresh([cabezal_top_dsk]);
+                    });
+                }
+            </script>
+        </div>
+        
+    </aside>
+
+<header id="header" class="header">
+    <button id="cerrar-desplegable" class="cerrar__desplegable"></button>
+    <nav id="navHeader" class="header__nav">
+
+        <section class="header__nav__menu">
+            <ul>
+                <li class="header__nav__menu__item --menu">
+                    <button id="btn-abrir-menu" class="icon-menu-desktop btn-menu-nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <sub>MENÚ</sub>
+                </li>
+
+                <li id="liBuscar" class="header__nav__menu__item --buscar icon-buscar">
+                    <input type="text" name="busqueda" id="txtBusqueda" data-id="buscador" class="input-buscador" placeholder="BUSCAR">
+                    <button class="menu__item__buscar --boton icon-buscar" data-id="btnBuscador"><span>Buscar</span></button>
+                </li>
+                <li class="header__nav__menu__item --logo">
+                    <a href="/" data-event="LinkClick" data-section="MenuLN">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 718 77" enable-background="new 0 0 718 77" xml:space="preserve" style="width:20em;height:auto;max-height:55px;"><title id="title-logo">LA NACION</title><g>
+                        <path d="M65.001,49.539c0,16.418-12.178,20.676-27.445,20.676h-2.734V7.918h12.803V2.959H1.15v4.959h11.623v62.297H1.15v4.964h69.598V46.427h-5.746V49.539z" style="color:#006998;background:#006998;fill: #006998;"></path>
+                        <path d="M125.537,3.069h-8.705L87.087,64.1c-1.721,3.392-4.396,6.115-9.939,6.115h-2.351v4.964h27.898v-4.964H97.65c-2.926,0-5.469-0.372-5.469-3.757c0-1.146,0.598-2.252,1.025-3.078l3.98-8.318h30.166l7.572,15.153h-11.139v4.964h45.971v-4.964 h-9.664L125.537,3.069z M99.599,50.14l12.163-24.51h0.991l12.18,24.51H99.599z" style="color:#006998;background:#006998;fill: #006998;"></path>
+                        <path d="M301.664,2.959h-28.69v4.959h3.466c5.786,0,8.93,1.896,8.93,5.83v31.88h-0.266L248.087,2.959h-33.571v4.959h1.982 c4.362,0,8.819,3.177,8.819,8.075v46.852c0,6.247-3.797,7.37-7.838,7.37h-1.445h-1.921v4.964h28.634v-4.964h-2.246 c-7.264,0-10.153-0.991-10.153-6.835V17.021h0.263l50.272,58.158h9.585V13.43c0-2.574,2.439-5.512,8.377-5.512h2.818V2.959z" style="color:#006998;background:#006998;fill: #006998;"></path>
+                        <path d="M351.055,3.069h-8.732L312.548,64.1c-1.684,3.392-4.377,6.115-9.937,6.115h-2.36v4.964h27.988v-4.964h-5.146 c-2.899,0-5.433-0.372-5.433-3.757c0-1.146,0.609-2.252,1.008-3.078l4.005-8.318h30.209l7.507,15.153h-11.137v4.964h45.954v-4.964  h-9.646L351.055,3.069z M325.123,50.14l12.114-24.51h1.04l12.125,24.51H325.123z" style="color:#006998;background:#006998;fill: #006998;"></path>
+                        <path d="M439.029,71.773c-17.453,0-20.705-15.069-20.705-32.594c0-18.248,3.611-33.132,21.137-33.132 c14.004,0,19.795,12.213,21.924,22.639h5.701V3.069h-3.787c-0.117,2.191-0.748,4.151-3.625,4.151c-2.824,0-8.229-6.1-23.582-6.1 c-20.635,0-41.961,17.326-41.961,38.059c0,21.049,22.047,37.82,43.729,37.82c16.932,0,30.016-9.829,30.016-27.461h-6.002 C461.873,62.377,452.666,71.773,439.029,71.773z" style="color:#006998;background:#006998;fill: #006998;"></path>
+                        <polygon points="478.668,7.918 490.299,7.918 490.299,70.215 478.668,70.215 478.668,75.179 523.994,75.179 523.994,70.215 512.311,70.215 512.311,7.918 523.994,7.918 523.994,2.959 478.668,2.959 	" style="color:#006998;background:#006998;fill: #006998;"></polygon>
+                        <path d="M576.51,1.121c-21.391,0-43.041,16.622-43.041,37.949c0,21.344,21.65,37.93,43.041,37.93 c21.273,0,43.301-16.586,43.301-37.93C619.811,17.743,597.783,1.121,576.51,1.121z M576.611,72.093 c-16.943,0-19.162-16.312-19.162-33.022c0-16.804,2.293-33.022,19.162-33.022c17.004,0,19.193,16.087,19.193,33.022  C595.805,55.891,593.615,72.093,576.611,72.093z" style="color:#006998;background:#006998;fill: #006998;"></path>
+                        <path d="M685.438,2.959v4.959h3.512c5.76,0,8.898,1.896,8.898,5.83v31.88h-0.33L660.529,2.959h-33.568v4.959h1.986 c4.385,0,8.859,3.177,8.859,8.075v46.852c0,6.247-3.795,7.37-7.816,7.37h-1.428h-1.957v4.964h28.592v-4.964h-2.254 c-7.316,0-10.15-0.991-10.15-6.835V17.021h0.238l50.281,58.158h9.588V13.43c0-2.574,2.508-5.512,8.404-5.512h2.846V2.959H685.438z" style="color:#006998;background:#006998;fill: #006998;"></path></g></svg>
+                    </a>
+<div id="bn-1x1">
+        <div id='1x1_dsk'>
+            <script>
+                if (showBannerResolution('1x1_dsk')) {
+                    googletag.cmd.push(function () { googletag.display('1x1_dsk'); googletag.pubads().refresh([_1x1_dsk]); });
+                    
+                }
+            </script>
+        </div>
+        <div id='1x1_tab'>
+            <script>
+                if (showBannerResolution('1x1_tab')) {
+                    googletag.cmd.push(function () { googletag.display('1x1_tab'); googletag.pubads().refresh([_1x1_tab]); });
+                }
+            </script>
+        </div>
+        <div id='1x1_mob'>
+            <script>
+                if (showBannerResolution('1x1_mob')) {
+                    googletag.cmd.push(function () { googletag.display('1x1_mob'); googletag.pubads().refresh([_1x1_mob]);});
+                }
+            </script>
+        </div>
+
+</div>
+                </li>
+                <li class="header__nav__menu__item --suscribir"><a href="https://suscripciones.lanacion.com.ar/suscribirme?cv=671&fc=267&utm_source=organico&utm_medium=organico&utm_campaign=wall_boton_ln_organico">Suscribite</a></li>
+                <li class="header__nav__menu__item --ingresar">
+                    <a id="btnIngresar" class="menu__item__ingresar --ingresar ingresar" href="#">Ingresar</a>
+                    <button id="btnSuscriptor" class="menu__item__ingresar --suscriptor ">
+    <span class="item__suscriptor --nombre icon-derecha" id="spanUsuario"></span>
+    <span class="item__suscriptor --sin__digital">Sin suscripción digital</span>
+    <span class="item__suscriptor --con__digital">Suscriptor digital</span>
+    <ul>
+        <li class="ingresar__suscriptor__item --cuenta"><a href="https://micuenta.lanacion.com.ar/mis-datos" data-event="LinkClick" data-section="MenuLN">Mi cuenta</a></li>
+        <li class="ingresar__suscriptor__item --suscripciones"><a href="https://micuenta.lanacion.com.ar/mis-suscripciones" data-event="LinkClick" data-section="MenuLN">Mis suscripciones</a></li>
+        <li class="ingresar__suscriptor__item --ayuda"><a href="https://micuenta.lanacion.com.ar/ayuda" data-event="LinkClick" data-section="MenuLN">Ayuda</a></li>
+        <li class="ingresar__suscriptor__item --salir"><a id="btnSalir" href="#" data-event="LinkClick" data-section="MenuLN">Salir</a></li>
+    </ul>
+</button>
+                </li>
+            </ul>
+        </section>
+        <section id="desplegableHeader" class="header__nav__desplegable">
+    <ul>
+        <li id="navSecciones" class="header__nav__desplegable__item --secciones  --desplegable">
+            <button id="__desplegar" class="icon-derecha" data-selector-menu-click="">Secciones</button>
+            <ul>
+                    <li class="desplegable__secciones__item --politica">
+                        <a href="/politica" data-event="LinkClick" data-section="MenuLN" alt="Ir a Política">Política</a>
+                    </li>
+                    <li class="desplegable__secciones__item --economia">
+                        <a href="/economia" data-event="LinkClick" data-section="MenuLN" alt="Ir a Economía">Economía</a>
+                    </li>
+                    <li class="desplegable__secciones__item --sociedad">
+                        <a href="/sociedad" data-event="LinkClick" data-section="MenuLN" alt="Ir a Sociedad">Sociedad</a>
+                    </li>
+                    <li class="desplegable__secciones__item --elecciones-2019">
+                        <a href="//www.lanacion.com.ar/tema/elecciones-2019-tid64540" data-event="LinkClick" data-section="MenuLN" alt="Ir a Elecciones 2019">Elecciones 2019</a>
+                    </li>
+                    <li class="desplegable__secciones__item --buenos-aires">
+                        <a href="/buenos-aires" data-event="LinkClick" data-section="MenuLN" alt="Ir a Buenos Aires">Buenos Aires</a>
+                    </li>
+                    <li class="desplegable__secciones__item --seguridad">
+                        <a href="/seguridad" data-event="LinkClick" data-section="MenuLN" alt="Ir a Seguridad">Seguridad</a>
+                    </li>
+                    <li class="desplegable__secciones__item --el-mundo">
+                        <a href="/el-mundo " data-event="LinkClick" data-section="MenuLN" alt="Ir a El Mundo">El Mundo</a>
+                    </li>
+                    <li class="desplegable__secciones__item --opinion">
+                        <a href="/opinion" data-event="LinkClick" data-section="MenuLN" alt="Ir a Opinión">Opinión</a>
+                    </li>
+                    <li class="desplegable__secciones__item --editoriales">
+                        <a href="/opinion/editoriales" data-event="LinkClick" data-section="MenuLN" alt="Ir a Editoriales">Editoriales</a>
+                    </li>
+                    <li class="desplegable__secciones__item --deportes">
+                        <a href="/deportes" data-event="LinkClick" data-section="MenuLN" alt="Ir a Deportes">Deportes</a>
+                    </li>
+                    <li class="desplegable__secciones__item --espectaculos">
+                        <a href="/espectaculos" data-event="LinkClick" data-section="MenuLN" alt="Ir a Espectáculos">Espectáculos</a>
+                    </li>
+                    <li class="desplegable__secciones__item --lifestyle">
+                        <a href="/lifestyle" data-event="LinkClick" data-section="MenuLN" alt="Ir a Lifestyle">Lifestyle</a>
+                    </li>
+                    <li class="desplegable__secciones__item --campo">
+                        <a href="/economia/campo" data-event="LinkClick" data-section="MenuLN" alt="Ir a Campo">Campo</a>
+                    </li>
+                    <li class="desplegable__secciones__item --moda-y-belleza">
+                        <a href="/moda-y-belleza" data-event="LinkClick" data-section="MenuLN" alt="Ir a Moda y Belleza">Moda y Belleza</a>
+                    </li>
+                    <li class="desplegable__secciones__item --turismo">
+                        <a href="/turismo" data-event="LinkClick" data-section="MenuLN" alt="Ir a Turismo">Turismo</a>
+                    </li>
+                    <li class="desplegable__secciones__item --cultura">
+                        <a href="/cultura" data-event="LinkClick" data-section="MenuLN" alt="Ir a Cultura">Cultura</a>
+                    </li>
+                    <li class="desplegable__secciones__item --educacion">
+                        <a href="/educacion" data-event="LinkClick" data-section="MenuLN" alt="Ir a Educación">Educación</a>
+                    </li>
+                    <li class="desplegable__secciones__item --salud">
+                        <a href="/salud" data-event="LinkClick" data-section="MenuLN" alt="Ir a Salud">Salud</a>
+                    </li>
+                    <li class="desplegable__secciones__item --ciencia">
+                        <a href="/ciencia" data-event="LinkClick" data-section="MenuLN" alt="Ir a Ciencia">Ciencia</a>
+                    </li>
+                    <li class="desplegable__secciones__item --comunidad">
+                        <a href="/comunidad" data-event="LinkClick" data-section="MenuLN" alt="Ir a Comunidad">Comunidad</a>
+                    </li>
+                    <li class="desplegable__secciones__item --propiedades">
+                        <a href="/propiedades" data-event="LinkClick" data-section="MenuLN" alt="Ir a Propiedades">Propiedades</a>
+                    </li>
+                    <li class="desplegable__secciones__item --autos">
+                        <a href="/autos" data-event="LinkClick" data-section="MenuLN" alt="Ir a Autos">Autos</a>
+                    </li>
+                    <li class="desplegable__secciones__item --la-nacion-data">
+                        <a href="/data" data-event="LinkClick" data-section="MenuLN" alt="Ir a LA NACION Data">LA NACION Data</a>
+                    </li>
+                    <li class="desplegable__secciones__item --tecnologia">
+                        <a href="/tecnologia" data-event="LinkClick" data-section="MenuLN" alt="Ir a Tecnología">Tecnología</a>
+                    </li>
+            </ul>
+        </li>
+        <li class="header__nav__desplegable__item --noticias"><a href="/ultimas-noticias" data-event="LinkClick" data-section="MenuLN">Últimas noticias</a></li>
+        <li class="header__nav__desplegable__item --impresa"><a href="/edicion-impresa" data-event="LinkClick" data-section="MenuLN">Edición impresa</a></li>
+        <li class="header__nav__desplegable__item --revistas --desplegable">
+            <button class="icon-derecha" data-selector-menu-click="">Revistas</button>
+            <ul>
+                <li class="desplegable__revistas__item --ohlala"><a href="/revista-ohlala" data-event="LinkClick" data-section="MenuLN" alt="Ir a OHLALÁ!">OHLALÁ!</a></li>
+                <li class="desplegable__revistas__item --hola"><a href="/revista-hola" data-event="LinkClick" data-section="MenuLN" alt="Ir a ¡HOLA!">¡HOLA!</a></li>
+                <li class="desplegable__revistas__item --rolling"><a href="/revista-rolling-stone" data-event="LinkClick" data-section="MenuLN" alt="Ir a RollingStone">RollingStone</a></li>
+                <li class="desplegable__revistas__item --lugares"><a href="/revista-lugares" data-event="LinkClick" data-section="MenuLN" alt="Ir a Lugares">Lugares</a></li>
+                <li class="desplegable__revistas__item --living"><a href="/revista-living" data-event="LinkClick" data-section="MenuLN" alt="Ir a Living">Living</a></li>
+                <li class="desplegable__revistas__item --brando"><a href="/revista-brando" data-event="LinkClick" data-section="MenuLN" alt="Ir a Brando">Brando</a></li>
+                <li class="desplegable__revistas__item --jardin"><a href="/revista-jardin" data-event="LinkClick" data-section="MenuLN" alt="Ir a Jardín">Jardín</a></li>
+            </ul>
+        </li>
+        <li class="header__nav__desplegable__item --servicios  --desplegable">
+            <button class="icon-derecha" data-selector-menu-click="">Servicios</button>
+            <ul>
+                    <li class="desplegable__servicios__item --horoscopo">
+                        <a href="//www.lanacion.com.ar/horoscopo" data-event="LinkClick" data-section="MenuLN" alt="Ir a Horóscopo">Horóscopo</a>
+                    </li>
+                    <li class="desplegable__servicios__item --pronostico">
+                        <a href="//servicios.lanacion.com.ar/pronostico-del-tiempo " data-event="LinkClick" data-section="MenuLN" alt="Ir a Pronóstico">Pronóstico</a>
+                    </li>
+                    <li class="desplegable__servicios__item --dolar-hoy">
+                        <a href="/dolar-hoy" data-event="LinkClick" data-section="MenuLN" alt="Ir a Dólar hoy">Dólar hoy</a>
+                    </li>
+                    <li class="desplegable__servicios__item --feriados">
+                        <a href="//www.lanacion.com.ar/feriados" data-event="LinkClick" data-section="MenuLN" alt="Ir a Feriados">Feriados</a>
+                    </li>
+                    <li class="desplegable__servicios__item --funebres">
+                        <a href="//servicios.lanacion.com.ar/edicion-impresa/avisos-funebres" data-event="LinkClick" data-section="MenuLN" alt="Ir a Fúnebres">Fúnebres</a>
+                    </li>
+                    <li class="desplegable__servicios__item --loterias-y-quinielas">
+                        <a href="//servicios.lanacion.com.ar/loterias" data-event="LinkClick" data-section="MenuLN" alt="Ir a Loterías y quinielas">Loterías y quinielas</a>
+                    </li>
+                    <li class="desplegable__servicios__item --cartelera-de-cine">
+                        <a href="/cartelera-de-cine" data-event="LinkClick" data-section="MenuLN" alt="Ir a Cartelera de cine">Cartelera de cine</a>
+                    </li>
+                    <li class="desplegable__servicios__item --cartelera-de-teatro">
+                        <a href="/cartelera-de-teatro" data-event="LinkClick" data-section="MenuLN" alt="Ir a Cartelera de teatro">Cartelera de teatro</a>
+                    </li>
+                    <li class="desplegable__servicios__item --cocina-y-recetas">
+                        <a href="//recetas.lanacion.com.ar/" data-event="LinkClick" data-section="MenuLN" alt="Ir a Cocina y Recetas">Cocina y Recetas</a>
+                    </li>
+                    <li class="desplegable__servicios__item --remates-ganaderos">
+                        <a href="//remates.lanacion.com.ar/" data-event="LinkClick" data-section="MenuLN" alt="Ir a Remates Ganaderos">Remates Ganaderos</a>
+                    </li>
+                    <li class="desplegable__servicios__item --transito">
+                        <a href="//www.lanacion.com.ar/transito" data-event="LinkClick" data-section="MenuLN" alt="Ir a Tránsito">Tránsito</a>
+                    </li>
+                    <li class="desplegable__servicios__item --guias:-hablemos-de...">
+                        <a href="/comunidad/guias-vivir-mejor-respuestas-problemas-mas-te-nid2302789" data-event="LinkClick" data-section="MenuLN" alt="Ir a Guías: Hablemos de...">Guías: Hablemos de...</a>
+                    </li>
+            </ul>
+        </li>
+        <li class="header__nav__desplegable__item --lnmas"><a href="https://lnmas.lanacion.com.ar/" target="_blank" data-event="LinkClick" data-section="MenuLN">LN+</a></li>
+        <li class="header__nav__desplegable__item --club"><a href="https://club.lanacion.com.ar/" data-event="LinkClick" data-section="MenuLN">Club LA NACION</a></li>
+    </ul>
+</section>
+        <section class="header__nav__submenu">
+            <ul>
+                <li class="header__nav__submenu__item --dolar">
+                    <div class="moneda__dolar">
+                        <p class="dolar__nacion"><a href="https://www.lanacion.com.ar/dolar-hoy" title="Ir a notas de Dólar Hoy" data-event="LinkClick" data-section="MenuLN">Dólar&nbsp</a></p>
+                        <p class="text__nacion">B. Nación: </p><p class="text__bna">BNA:&nbsp</p>
+                        <div class="dolar__compra"><span id="precioCompraDolar">-</span><i> / </i></div>
+                        <div class="dolar__venta"><span id="precioVentaDolar">-</span></div>
+                    </div>
+                    <div class="moneda__dolar">
+                        <p class="dolar__blue">
+                            <a href="https://www.lanacion.com.ar/tema/dolar-blue-tid67294" title="Ir a notas de Dólar Blue" data-event="LinkClick" data-section="MenuLN">Blue:&nbsp</a>
+                        </p>
+
+                        <div class="dolar__compra --blue">
+                            <span id="precioCompraBlue"> - </span><i> / </i>
+                        </div>
+                        <div class="dolar__venta --blue">
+                            <span id="precioVentaBlue"> - </span>
+                        </div>
+                    </div>
+                    <!--<a target="_blank" href="https://www.lanacion.com.ar/tema/dolar-blue-tid67294" class="dolar-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="97" height="15" viewBox="0 0 97 15">
+                            <g fill="none" fill-rule="nonzero">
+                                <path fill="#B2252B" d="M81.56.247c1.033 2.698 2.21 8.17-.555 14.183-.03.078.07.146.174.076 3.31-2.193 6.194-6.402 7.145-9.84-3.296-1.71-5.278-3.474-6.476-4.606a.171.171 0 0 0-.223-.032.176.176 0 0 0-.065.219" />
+                                <path fill="#6E1C45" d="M96.468 7.335c-2.742-.437-5.41-1.349-7.15-2.185-1.006 2.672-2.95 5.538-4.987 7.506-.109.097-.02.263.163.132 4.35-3.042 8.872-4.503 11.982-5.113.169-.04.172-.292-.005-.34" />
+                                <path fill="#434343" d="M3.256 9.214c-1.207-.433-1.56-.64-1.56-1.18 0-.489.51-.857 1.183-.857.636 0 1.3.193 2.032.593.013.007.028.01.042.01.015 0 .03-.003.043-.01a.096.096 0 0 0 .047-.073L5.24 6.38a.093.093 0 0 0-.052-.1 5.432 5.432 0 0 0-2.264-.483C1.354 5.798.26 6.79.26 8.21c0 1.304.835 1.85 2.484 2.452 1.09.39 1.454.621 1.454 1.226s-.553 1-1.41 1c-.71 0-1.67-.277-2.456-.704a.09.09 0 0 0-.083-.001.1.1 0 0 0-.049.073l-.198 1.28a.097.097 0 0 0 .055.103c.888.394 1.835.61 2.67.61 1.74 0 2.908-1.02 2.908-2.535 0-1.37-.835-1.937-2.378-2.5M13.995 5.798h-1.397a.094.094 0 0 0-.093.096v4.918c0 1.322-.593 2.015-1.72 2.015-1.098 0-1.705-.727-1.705-2.046V5.894a.094.094 0 0 0-.091-.096H7.603a.094.094 0 0 0-.091.096v4.953c0 2.129 1.216 3.402 3.256 3.402 2.076 0 3.317-1.295 3.317-3.466v-4.89a.094.094 0 0 0-.092-.095M18.48 9.461h-.914V7.152h.946c.69 0 1.51.2 1.51 1.155 0 .777-.506 1.154-1.541 1.154m.172-3.663h-2.597a.094.094 0 0 0-.094.092v7.797c0 .05.042.092.094.092h1.416a.094.094 0 0 0 .094-.092v-2.89h.915c1.98 0 3.115-.919 3.115-2.522 0-1.528-1.127-2.474-2.943-2.474M28.546 12.383h-3.495v-2.05h2.892a.095.095 0 0 0 .092-.107l-.2-1.216a.094.094 0 0 0-.093-.076H25.05V7.198h3.387a.092.092 0 0 0 .092-.091V5.89a.092.092 0 0 0-.092-.092h-4.871a.093.093 0 0 0-.093.092v7.797c0 .05.041.092.093.092h4.98a.092.092 0 0 0 .091-.092v-1.212a.09.09 0 0 0-.092-.092M34.067 8.28c0 .763-.532 1.186-1.497 1.186h-.93V7.17h.93c.683 0 1.497.191 1.497 1.11zm-.007 2.216c1.029-.388 1.596-1.176 1.596-2.235 0-1.542-1.146-2.463-3.07-2.463h-2.447a.094.094 0 0 0-.065.027.089.089 0 0 0-.027.064v7.705c0 .024.009.047.026.065.017.017.041.027.066.027h1.404c.025 0 .049-.01.066-.027a.089.089 0 0 0 .026-.065V10.71h.717l2.181 3.032a.093.093 0 0 0 .072.037h.022l1.451-.324a.092.092 0 0 0 .067-.057.096.096 0 0 0-.013-.086l-2.072-2.816zM44.042 5.805h-1.384a.09.09 0 0 0-.085.06l-2.166 5.846-2.124-5.85a.097.097 0 0 0-.087-.063H36.69a.093.093 0 0 0-.06.046.1.1 0 0 0-.006.078l3.007 7.798a.09.09 0 0 0 .083.06h1.269a.094.094 0 0 0 .085-.06l3.056-7.79a.096.096 0 0 0-.008-.087.095.095 0 0 0-.076-.04M47.336 5.798h-1.245c-.045 0-.081.041-.082.092v7.797c0 .05.037.092.082.092h1.245c.045 0 .082-.041.082-.092V5.89c0-.05-.037-.091-.082-.092M54.836 12.383h-3.494v-2.05h2.892a.092.092 0 0 0 .071-.032.096.096 0 0 0 .022-.075l-.203-1.216a.09.09 0 0 0-.09-.076h-2.692V7.198h3.386c.05 0 .093-.04.094-.091V5.89a.092.092 0 0 0-.094-.092h-4.87a.093.093 0 0 0-.093.092v7.797c0 .05.042.092.093.092h4.978a.093.093 0 0 0 .094-.092v-1.212a.092.092 0 0 0-.094-.092M67.785 12.398H64.94V5.89c0-.05-.041-.092-.092-.092h-1.376a.092.092 0 0 0-.092.092v7.797c0 .05.041.092.092.092h4.51a.09.09 0 0 0 .07-.032.09.09 0 0 0 .022-.075l-.198-1.202a.09.09 0 0 0-.09-.077M74.555 12.383H71.06v-2.05h2.894a.093.093 0 0 0 .091-.107l-.2-1.216a.094.094 0 0 0-.091-.076H71.06V7.198h3.387c.051 0 .093-.04.094-.091V5.89a.092.092 0 0 0-.094-.092h-4.872a.092.092 0 0 0-.092.092v7.797a.092.092 0 0 0 .092.092h4.982a.093.093 0 0 0 .09-.092v-1.212a.092.092 0 0 0-.093-.092M61.682 12.398h-2.847V5.89c0-.05-.04-.091-.09-.092h-1.377a.092.092 0 0 0-.091.092v7.797c0 .05.04.092.091.092h4.512a.09.09 0 0 0 .07-.032.095.095 0 0 0 .02-.075l-.198-1.202a.09.09 0 0 0-.09-.077" />
+                            </g>
+                        </svg>
+                    </a>-->
+                </li>
+                <li class="header__nav__submenu__item --clima">
+                    <a href="https://servicios.lanacion.com.ar/pronostico-del-tiempo" alt="Ir a pronóstico de todo el país" data-event="LinkClick" data-section="MenuLN">
+                        <div id="divClima" class="__clima"><span id="spanTemperatura"> - </span></div>Capital Federal
+                    </a>
+                </li>
+                <li class="header__nav__submenu__item --newsletter"><a href="https://newsletter.lanacion.com.ar/" alt="Recibí newsletters" data-event="LinkClick" data-section="MenuLN">Recibí Newsletters</a></li>
+                <li class="header__nav__submenu__item --club">
+                    <a href="https://club.lanacion.com.ar/" data-event="LinkClick" data-section="MenuLN">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 53.239 39" style="width:4em;height:auto;max-height:40px;">
+                            <defs>
+                                <style>
+                                    .a {
+                                        fill: #126fff;
+                                    }
+                                </style>
+                            </defs>
+                            <path class="a" d="M53.217,20.6a26.777,26.777,0,0,0-1.368-4.13,27.449,27.449,0,0,0-5.772-8.583,26.626,26.626,0,0,0-8.583-5.772,27.12,27.12,0,0,0-21,0A27.066,27.066,0,0,0,2.14,16.5,26.5,26.5,0,0,0,0,26.994a27.011,27.011,0,0,0,2.115,10.5c.149.323.274.672.448,1a.894.894,0,0,0,1.244.4.885.885,0,0,0,.373-1.144c-.149-.3-.274-.6-.423-.921a25.327,25.327,0,0,1,5.4-27.666,25.282,25.282,0,0,1,8.011-5.4,25.214,25.214,0,0,1,33.015,13.41,24.111,24.111,0,0,1,1.269,3.856.882.882,0,0,0,.871.672.9.9,0,0,0,.9-1.095" transform="translate(0 0)"></path>
+                            <g transform="translate(10.823 17.515)"><path class="a" d="M43.5,78.845c0-3.682,1.891-6.145,5.971-6.145A13.355,13.355,0,0,1,53,73.123V75.76H51.685l-.174-1.592a11.094,11.094,0,0,0-1.941-.2c-3.06,0-4.13,1.916-4.13,4.578,0,3.483,1.244,4.9,4.155,4.9a10.226,10.226,0,0,0,1.916-.2l.249-1.592h1.319l-.1,2.588a13.236,13.236,0,0,1-3.558.473C45.391,84.667,43.5,82.652,43.5,78.845Z" transform="translate(-43.5 -72.128)"></path><path class="a" d="M85.824,81.7l.97-.075V71.669H85.6V70.574l2.687-.174.149.124V81.7h1.07V82.79H85.824Z" transform="translate(-75.126 -70.4)"></path><path class="a" d="M103.62,92.4l.025-4.677H102.6V86.624l2.538-.124.149.124-.025,5.5a1.63,1.63,0,0,0,1.791,1.791,3.72,3.72,0,0,0,2.015-.7l.025-5.5h-1.07V86.624l2.538-.124.149.124-.025,7.066,1.07.05v1.095l-2.364.124-.124-.149-.124-.8a4.649,4.649,0,0,1-2.811,1.07A2.489,2.489,0,0,1,103.62,92.4Z" transform="translate(-87.896 -82.494)"></path><path class="a" d="M141.569,82.541V71.669H140.4V70.574l2.687-.174.149.124V75.1a4.417,4.417,0,0,1,2.488-.8c2.438,0,3.608,1.642,3.608,4.08a4.271,4.271,0,0,1-4.478,4.578A12.14,12.14,0,0,1,141.569,82.541Zm6.021-4.006c0-1.791-.8-3.01-2.388-3.01a3.44,3.44,0,0,0-1.99.572v5.424a6.243,6.243,0,0,0,1.692.249C146.769,81.77,147.59,80.252,147.59,78.536Z" transform="translate(-116.292 -70.4)"></path></g>
+                        </svg><span>Descubrí tus beneficios</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</header>
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "https://www.lanacion.com.ar",
+        "logo": "https://bucket3.glanacion.com/anexos/fotos/28/1990328.jpg"
+    }
+</script>
+
+
+    <main id="main" class="content-main">
+                <aside id="bn-header" class="content-bnheader place-21 ">
+                    <div id="cabezal_dsk">
+                        <script>
+                            if (showBannerResolution('cabezal_dsk')) {
+                                googletag.cmd.push(function () {
+                                    googletag.display('cabezal_dsk');
+                                    googletag.pubads().refresh([cabezal_dsk]);
+                                });
+                            }
+                        </script>
+                    </div>
+                    <div id="cabezal_tab">
+                        <script>
+                            if (showBannerResolution('cabezal_tab')) {
+                                googletag.cmd.push(function () {
+                                    googletag.display('cabezal_tab');
+                                    googletag.pubads().refresh([cabezal_tab]);
+                                });
+                            }
+                        </script>
+                    </div>
+                </aside>
+
+            <div id="sticky" class="banner place-01 ">
+                <script>
+                    if (showBannerResolution('sticky1_mob')) {
+                        googletag.cmd.push(function () {
+                            googletag.display('sticky');
+                            googletag.pubads().refresh([sticky1_mob]);
+                        });
+                    }
+                </script>
+            </div>
+            <div id="sticky_2" class="banner place-02 ">
+                <script>
+                    if (showBannerResolution('sticky2_mob')) {
+                        googletag.cmd.push(function () {
+                            googletag.display('sticky_2');
+                            googletag.pubads().refresh([sticky2_mob]);
+                        });
+                    }
+                </script>
+            </div>
+
+        
+
+
+        
+
+
+
+
+<section id="apertura" data-is-block="true" data-block-name="h_apertura-normal-5" data-diagramacion-id="270" class="content-apertura-sf place-22 ">
+<article class="art-01 destacada xl  firma-autor volanta toi8662 nid2323906 bajada" data-pos="8662" data-id="2323906" data-notaid="2323906" data-source="editor">
+    <a class="figure" href="/politica/el-gobierno-ordena-reducir-al-minimo-intervencion-nid2323906">
+                        <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" srcset="//bucket2.glanacion.com/anexos/fotos/84/3167584h620.jpg" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" srcset="//bucket2.glanacion.com/anexos/fotos/84/3167584h620.jpg" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" srcset="//bucket2.glanacion.com/anexos/fotos/84/3167584h450.jpg" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" srcset="//bucket2.glanacion.com/anexos/fotos/84/3167584h390.jpg" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" srcset="//bucket2.glanacion.com/anexos/fotos/84/3167584h425.jpg" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" srcset="//bucket2.glanacion.com/anexos/fotos/84/3167584h360.jpg" class="img-mobile-sm" alt="imagen-destacada">
+    <img alt="imagen-destacada">
+                </picture>
+
+    </a>
+    <h1 class="content-titulo">
+        <a href="/politica/el-gobierno-ordena-reducir-al-minimo-intervencion-nid2323906">
+            El Gobierno ordena &quot;reducir al m&#237;nimo&quot; la intervenci&#243;n en las causas
+        </a>
+    </h1>
+
+        <h3>
+        <a href="/politica/el-gobierno-ordena-reducir-al-minimo-intervencion-nid2323906">Por Maia Jastreblansky</a>
+    </h3>
+
+        <h4 class="content-bajada">
+            <a href="/politica/el-gobierno-ordena-reducir-al-minimo-intervencion-nid2323906">
+                Es parte del proyecto de reforma judicial, que entre otros puntos busca quitarle atribuciones de inteligencia criminal al organismo
+            </a>
+        </h4>
+            <mark>
+            <a href="/politica/el-gobierno-ordena-reducir-al-minimo-intervencion-nid2323906">AFI.</a>
+        </mark>
+</article><article class="art-02 l  firma-autor volanta toi8663 nid2323846" data-pos="8663" data-id="2323846" data-notaid="2323846" data-source="editor">
+        <a class="figure" href="/seguridad/ejecutan-al-hijo-policia-condenado-formar-parte-nid2323846">
+                            <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" srcset="//bucket1.glanacion.com/anexos/fotos/11/3175811h460.jpg" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" srcset="//bucket1.glanacion.com/anexos/fotos/11/3175811h420.jpg" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" srcset="//bucket1.glanacion.com/anexos/fotos/11/3175811h400.jpg" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" srcset="//bucket1.glanacion.com/anexos/fotos/11/3175811h400.jpg" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" srcset="//bucket1.glanacion.com/anexos/fotos/11/3175811h425.jpg" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" srcset="//bucket1.glanacion.com/anexos/fotos/11/3175811h225.jpg" class="img-mobile-sm" alt="imagen-destacada">
+    <img alt="imagen-destacada">
+                </picture>
+        </a>
+        <h2 class="content-titulo">
+            <a href="/seguridad/ejecutan-al-hijo-policia-condenado-formar-parte-nid2323846">
+                    <span class="volanta">Los monos.</span>
+                Ejecutan al hijo de un polic&#237;a condenado por integrar la banda
+            </a>
+        </h2>
+        <h3>
+        <a href="/seguridad/ejecutan-al-hijo-policia-condenado-formar-parte-nid2323846">Por Germ&#225;n de los Santos</a>
+    </h3>
+
+    
+
+</article>
+
+<article class="art-03 m  volanta toi8664 nid2323915" data-pos="8664" data-id="2323915" data-notaid="2323915" data-source="editor">
+        <a class="figure" href="/politica/kicillof-califico-como-impagable-catastrofico-endeudamiento-dejo-nid2323915">
+                            <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" srcset="//bucket2.glanacion.com/anexos/fotos/45/3173245h320.jpg" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" srcset="//bucket2.glanacion.com/anexos/fotos/45/3173245h320.jpg" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" srcset="//bucket2.glanacion.com/anexos/fotos/45/3173245h300.jpg" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" srcset="//bucket2.glanacion.com/anexos/fotos/45/3173245h300.jpg" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" srcset="//bucket2.glanacion.com/anexos/fotos/45/3173245h425.jpg" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" srcset="//bucket2.glanacion.com/anexos/fotos/45/3173245h225.jpg" class="img-mobile-sm" alt="imagen-destacada">
+    <img alt="imagen-destacada">
+                </picture>
+        </a>
+        <h2 class="content-titulo">
+            <a href="/politica/kicillof-califico-como-impagable-catastrofico-endeudamiento-dejo-nid2323915">
+                    <span class="volanta">&quot;Catastr&#243;fica&quot;.</span>
+                Kicillof calific&#243; como &quot;impagable&quot; la deuda de la provincia
+            </a>
+        </h2>
+    
+    
+
+</article>
+
+<article class="art-04 m  firma-autor volanta toi8665 nid2323853" data-pos="8665" data-id="2323853" data-notaid="2323853" data-source="editor">
+        <a class="figure" href="/economia/el-caso-brahma-el-lento-camino-deconstruccion-nid2323853">
+                            <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" srcset="//bucket3.glanacion.com/anexos/fotos/56/3175156h320.jpg" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" srcset="//bucket3.glanacion.com/anexos/fotos/56/3175156h320.jpg" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" srcset="//bucket3.glanacion.com/anexos/fotos/56/3175156h300.jpg" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" srcset="//bucket3.glanacion.com/anexos/fotos/56/3175156h300.jpg" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" srcset="//bucket3.glanacion.com/anexos/fotos/56/3175156h425.jpg" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" srcset="//bucket3.glanacion.com/anexos/fotos/56/3175156h225.jpg" class="img-mobile-sm" alt="imagen-destacada">
+    <img alt="imagen-destacada">
+                </picture>
+        </a>
+        <h2 class="content-titulo">
+            <a href="/economia/el-caso-brahma-el-lento-camino-deconstruccion-nid2323853">
+                    <span class="volanta">El caso Brahma.</span>
+                El lento camino de la deconstrucci&#243;n de la publicidad argentina
+            </a>
+        </h2>
+        <h3>
+        <a href="/economia/el-caso-brahma-el-lento-camino-deconstruccion-nid2323853">Por Alfredo Sainz</a>
+    </h3>
+
+    
+
+</article>
+
+</section>
+                    <aside id="bn-lateral" class="content-bnlateral place-bnlateral">
+                <div id="megalateral_dsk">
+                    <script>
+                        if (showBannerResolution('megalateral_dsk')) {
+                            googletag.cmd.push(function () {
+                                googletag.display('megalateral_dsk');
+                                googletag.pubads().refresh([megalateral_dsk]);
+                            });
+                        }
+                    </script>
+                </div>
+            </aside>
+            <div id="cabezal_inferior_dsk" class="banner place-23 ">
+                <script>
+                    if (showBannerResolution('cabezal_inferior_dsk')) {
+                        googletag.cmd.push(function () {
+                            googletag.display('cabezal_inferior_dsk');
+                            googletag.pubads().refresh([cabezal_inferior_dsk]);
+                        });
+                    }
+                </script>
+            </div>
+            <div class="adhesion " id='adhesion_dsk'>
+                <script>
+                    if (showBannerResolution('adhesion_dsk')) {
+                        googletag.cmd.push(function () {
+                            googletag.display('adhesion_dsk');
+                            googletag.pubads().refresh([adhesion_dsk]);
+                        });
+                    }
+                </script>
+            </div>
+            <div class="adhesion " id="adhesion_mob">
+                <script>
+                    if (showBannerResolution('adhesion_mob')) {
+                        googletag.cmd.push(function () {
+                            googletag.display('adhesion_mob');
+                            googletag.pubads().refresh([adhesion_mob]);
+                        });
+                    }
+                </script>
+            </div>
+            <div class="adhesion" id="adhesion_tab">
+                <script>
+                    if (showBannerResolution('adhesion_tab')) {
+                        googletag.cmd.push(function () {
+                            googletag.display('adhesion_tab');
+                            googletag.pubads().refresh([adhesion_tab]);
+                        });
+                    }
+                </script>
+            </div>
+            <div class="banner-mobile b-mobile cinturon-mobile ad-slot place-24 " id="caja1_mob">
+                <script>
+                    if (showBannerResolution('caja1_mob')) {
+                        googletag.cmd.push(function () {
+                            googletag.display('caja1_mob');
+                            googletag.pubads().refresh([caja1_mob]);
+                        });
+                    }
+                </script>
+            </div>
+
+        
+        
+
+
+<section id="tema_1" class="content-6notas  place-25 " data-is-block="true" data-block-name="h_tema-1" data-diagramacion-id="250">
+
+
+<article class="art-01 m volanta toi8428 nid2323559" data-pos="8428" data-id="2323559" data-notaid="2323559" data-source="editor">
+        <a class="figure" href="/sociedad/carlos-paz-se-tiro-cabeza-pool-party-nid2323559">
+                            <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/83/3175483h320.jpg" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/83/3175483h320.jpg" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/83/3175483h300.jpg" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/83/3175483h300.jpg" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/83/3175483h425.jpg" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/83/3175483h225.jpg" class="img-mobile-sm" alt="imagen-destacada">
+    <img class="lazy " alt="imagen-destacada" data-src="">
+                </picture>
+        </a>
+        <h2 class="content-titulo">
+            <a href="/sociedad/carlos-paz-se-tiro-cabeza-pool-party-nid2323559">
+                    <span class="volanta">Carlos Paz.</span>
+                Se tir&#243; de cabeza en una pool party, se golpe&#243; y est&#225; en coma
+            </a>
+        </h2>
+    
+    
+
+</article>
+
+<article class="art-02 m volanta toi8429 nid2323836" data-pos="8429" data-id="2323836" data-notaid="2323836" data-source="editor">
+        <a class="figure" href="/deportes/futbol/quique-setien-simeone-nid2323836">
+                            <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/38/3176138h320.jpg" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/38/3176138h320.jpg" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/38/3176138h300.jpg" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/38/3176138h300.jpg" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/38/3176138h425.jpg" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/38/3176138h225.jpg" class="img-mobile-sm" alt="imagen-destacada">
+    <img class="lazy " alt="imagen-destacada" data-src="">
+                </picture>
+        </a>
+        <h2 class="content-titulo">
+            <a href="/deportes/futbol/quique-setien-simeone-nid2323836">
+                    <span class="volanta">&quot;No me gustan&quot;.</span>
+                Los dos argentinos que encabezan la lista de enemigos de Seti&#233;n
+            </a>
+        </h2>
+    
+    
+
+</article>
+
+<article class="art-03 m volanta toi8430 nid2323909" data-pos="8430" data-id="2323909" data-notaid="2323909" data-source="editor">
+        <a class="figure" href="/economia/deuda-el-bono-emitido-scioli-ahora-complica-nid2323909">
+                            <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/95/3176295h320.jpg" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/95/3176295h320.jpg" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/95/3176295h300.jpg" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/95/3176295h300.jpg" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/95/3176295h425.jpg" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/95/3176295h225.jpg" class="img-mobile-sm" alt="imagen-destacada">
+    <img class="lazy " alt="imagen-destacada" data-src="">
+                </picture>
+        </a>
+        <h2 class="content-titulo">
+            <a href="/economia/deuda-el-bono-emitido-scioli-ahora-complica-nid2323909">
+                    <span class="volanta">BP21.</span>
+                El bono emitido por Daniel Scioli que ahora complica a Kicillof
+            </a>
+        </h2>
+    
+    
+
+</article>
+
+<article class="art-04 m volanta toi8432 nid2323896" data-pos="8432" data-id="2323896" data-notaid="2323896" data-source="editor">
+        <a class="figure" href="/politica/juan-grabois-volvio-criticar-al-gobierno-tomar-nid2323896">
+                            <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/43/3092543h320.jpg" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/43/3092543h320.jpg" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/43/3092543h300.jpg" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/43/3092543h300.jpg" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/43/3092543h425.jpg" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/43/3092543h225.jpg" class="img-mobile-sm" alt="imagen-destacada">
+    <img class="lazy " alt="imagen-destacada" data-src="">
+                </picture>
+        </a>
+        <h2 class="content-titulo">
+            <a href="/politica/juan-grabois-volvio-criticar-al-gobierno-tomar-nid2323896">
+                    <span class="volanta">Grabois.</span>
+                Dura cr&#237;tica al Gobierno: &quot;Tomar de boludos a los pobres no me cabe&quot;
+            </a>
+        </h2>
+    
+    
+
+</article>
+
+<article class="art-05 m volanta toi8433 nid2323606" data-pos="8433" data-id="2323606" data-notaid="2323606" data-source="editor">
+        <a class="figure" href="/sociedad/la-contradiccion-manifestante-izquierda-quedo-al-descubierto-nid2323606">
+                            <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/06/3175606h320.jpg" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/06/3175606h320.jpg" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/06/3175606h300.jpg" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/06/3175606h300.jpg" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/06/3175606h425.jpg" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/06/3175606h225.jpg" class="img-mobile-sm" alt="imagen-destacada">
+    <img class="lazy " alt="imagen-destacada" data-src="">
+                </picture>
+        </a>
+        <h2 class="content-titulo">
+            <a href="/sociedad/la-contradiccion-manifestante-izquierda-quedo-al-descubierto-nid2323606">
+                    <span class="volanta">Redes.</span>
+                La contradicci&#243;n del manifestante de izquierda entre su ropa y su discurso
+            </a>
+        </h2>
+    
+    
+
+</article>
+
+<article class="art-06 m volanta toi8434 nid2323905" data-pos="8434" data-id="2323905" data-notaid="2323905" data-source="editor">
+        <a class="figure" href="/el-mundo/el-pais-sudamericano-va-crecer-14-veces-nid2323905">
+                            <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/83/3176283h320.jpg" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/83/3176283h320.jpg" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/83/3176283h300.jpg" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/83/3176283h300.jpg" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/83/3176283h425.jpg" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/83/3176283h225.jpg" class="img-mobile-sm" alt="imagen-destacada">
+    <img class="lazy " alt="imagen-destacada" data-src="">
+                </picture>
+        </a>
+        <h2 class="content-titulo">
+            <a href="/el-mundo/el-pais-sudamericano-va-crecer-14-veces-nid2323905">
+                    <span class="volanta">En 2020.</span>
+                El pa&#237;s sudamericano que va a crecer 14 veces m&#225;s r&#225;pido que China
+            </a>
+        </h2>
+    
+    
+
+</article>
+
+</section>
+
+
+            <div class="banner middle b-desktop ad-slot place-26 " id='billboard_dsk'>
+                <script>
+                    if (showBannerResolution('billboard_dsk')) {
+                        googletag.cmd.push(function () {
+                            googletag.display('billboard_dsk'); googletag.pubads().refresh([billboard_dsk]);
+                        });
+                    }
+                </script>
+            </div>
+            <div class="banner-tablet middle b-tablet ad-slot place-26 " id="middle1_tab">
+                <script>
+                    if (showBannerResolution('middle1_tab')) {
+                        googletag.cmd.push(function () {
+                            googletag.display('middle1_tab'); googletag.pubads().refresh([middle1_tab]);
+                        });
+                    }
+                </script>
+            </div>
+            <div class="banner-mobile ad-slot b-mobile place-26 " id='caja2_mob'>
+                <script>
+                    if (showBannerResolution('caja2_mob')) {
+                        googletag.cmd.push(function () {
+                            googletag.display('caja2_mob'); googletag.pubads().refresh([caja2_mob]);
+                        });
+                    }
+                </script>
+            </div>
+
+        
+        
+
+
+<section id="tema_6" class="content-3notas  place-27 " data-is-block="true" data-block-name="h_tema-6" data-diagramacion-id="240">
+
+
+<article class="art-01 m firma-autor volanta toi8618 nid2323672" data-pos="8618" data-id="2323672" data-notaid="2323672" data-source="editor">
+        <a class="figure" href="/politica/alberto-fernandez-eligio-embajador-carrera-vaticano-prepara-nid2323672">
+                            <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/27/3175827h320.jpg" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/27/3175827h320.jpg" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/27/3175827h300.jpg" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/27/3175827h300.jpg" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/27/3175827h425.jpg" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" data-srcset="//bucket3.glanacion.com/anexos/fotos/27/3175827h225.jpg" class="img-mobile-sm" alt="imagen-destacada">
+    <img class="lazy " alt="imagen-destacada" data-src="">
+                </picture>
+        </a>
+        <h2 class="content-titulo">
+            <a href="/politica/alberto-fernandez-eligio-embajador-carrera-vaticano-prepara-nid2323672">
+                    <span class="volanta">Francisco.</span>
+                Fern&#225;ndez eligi&#243; embajador para el Vaticano y viajar&#225; a ver al Papa
+            </a>
+        </h2>
+        <h3>
+        <a href="/politica/alberto-fernandez-eligio-embajador-carrera-vaticano-prepara-nid2323672">Por Gabriel Sued</a>
+    </h3>
+
+    
+
+</article>
+
+<article class="art-02 m firma-autor volanta toi8619 nid2323580" data-pos="8619" data-id="2323580" data-notaid="2323580" data-source="editor">
+        <a class="figure" href="/sociedad/san-bernardo-stadium-luna-park-abandonado-costa-nid2323580">
+                            <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" data-srcset="//bucket1.glanacion.com/anexos/fotos/30/3175530h320.jpg" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" data-srcset="//bucket1.glanacion.com/anexos/fotos/30/3175530h320.jpg" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" data-srcset="//bucket1.glanacion.com/anexos/fotos/30/3175530h300.jpg" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" data-srcset="//bucket1.glanacion.com/anexos/fotos/30/3175530h300.jpg" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" data-srcset="//bucket1.glanacion.com/anexos/fotos/30/3175530h425.jpg" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" data-srcset="//bucket1.glanacion.com/anexos/fotos/30/3175530h225.jpg" class="img-mobile-sm" alt="imagen-destacada">
+    <img class="lazy " alt="imagen-destacada" data-src="">
+                </picture>
+        </a>
+        <h2 class="content-titulo">
+            <a href="/sociedad/san-bernardo-stadium-luna-park-abandonado-costa-nid2323580">
+                    <span class="volanta">Luna Park abandonado.</span>
+                Est&#225; en la Costa: en &#233;l bail&#243; Guerra y toc&#243; La Renga
+            </a>
+        </h2>
+        <h3>
+        <a href="/sociedad/san-bernardo-stadium-luna-park-abandonado-costa-nid2323580">Por Alejandro Horvat</a>
+    </h3>
+
+    
+
+</article>
+
+<article class="art-03 m volanta toi8620 nid2323574" data-pos="8620" data-id="2323574" data-notaid="2323574" data-source="editor">
+        <a class="figure" href="/espectaculos/la-insolita-participacion-vicky-stefy-xipolitakis-los-nid2323574">
+                            <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/14/3065414h320.jpg" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/14/3065414h320.jpg" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/14/3065414h300.jpg" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/14/3065414h300.jpg" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/14/3065414h425.jpg" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" data-srcset="//bucket2.glanacion.com/anexos/fotos/14/3065414h225.jpg" class="img-mobile-sm" alt="imagen-destacada">
+    <img class="lazy " alt="imagen-destacada" data-src="">
+                </picture>
+        </a>
+        <h2 class="content-titulo">
+            <a href="/espectaculos/la-insolita-participacion-vicky-stefy-xipolitakis-los-nid2323574">
+                    <span class="volanta">&quot;Los dos Papas&quot;.</span>
+                La ins&#243;lita participaci&#243;n de Vicky Xipolitakis en la pel&#237;cula
+            </a>
+        </h2>
+    
+    
+
+</article>
+
+</section>
+
+        
+
+    <div class="place-28 ">
+
+        <h3 class="titulo-section opinion">
+            <a href="/opinion">Opinión</a>
+        </h3>
+
+
+        <section id="opinion" class="content-opinion" data-is-block="true" data-block-name="h_columnistas-1" data-diagramacion-id="0">
+<article class="art-01 m autor  nota-cerrada toi8453 nid2323655" data-pos="8453" data-id="2323655" data-notaid="2323655" data-source="editor">
+        <div class="content-firma">
+            <a class="figure" href="/opinion/columnistas/una-pulseada-que-va-mucho-mas-alla-de-lo-sindical-nid2323655">
+                <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" srcset="//bucket1.glanacion.com/anexos/fotos/70/2813870h320.png" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" srcset="//bucket1.glanacion.com/anexos/fotos/70/2813870h320.png" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" srcset="//bucket1.glanacion.com/anexos/fotos/70/2813870h300.png" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" srcset="//bucket1.glanacion.com/anexos/fotos/70/2813870h300.png" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" srcset="//bucket1.glanacion.com/anexos/fotos/70/2813870h425.png" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" srcset="//bucket1.glanacion.com/anexos/fotos/70/2813870h225.png" class="img-mobile-sm" alt="imagen-destacada">
+    <img alt="imagen-destacada">
+                </picture>
+            </a>
+            <h3 class="content-nombre">
+                <a href="/opinion/columnistas/una-pulseada-que-va-mucho-mas-alla-de-lo-sindical-nid2323655">
+                    Daniel Bilotta
+                </a>
+            </h3>
+        </div>
+        <h2 class="content-titulo">
+            <a href="/opinion/columnistas/una-pulseada-que-va-mucho-mas-alla-de-lo-sindical-nid2323655">
+                Una pulseada que va mucho m&#225;s all&#225; de lo sindical
+            </a>
+<div class="content-premium">
+    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="13" viewbox="0 0 11 13">
+        <path fill="#000" fill-rule="nonzero" d="M9.97 5.926a.821.821 0 0 0-.6-.248h-.284v-1.7a3.824 3.824 0 0 0-1.171-2.8 3.941 3.941 0 0 0-5.606 0 3.824 3.824 0 0 0-1.171 2.8v1.7H.852A.848.848 0 0 0 0 6.53v5.109a.848.848 0 0 0 .852.852h8.516a.848.848 0 0 0 .852-.852v-5.11a.821.821 0 0 0-.25-.603zm-2.59-.248H2.839v-1.7a2.188 2.188 0 0 1 .665-1.606 2.27 2.27 0 0 1 3.211 0c.434.42.675 1.002.665 1.606v1.7z"></path>
+    </svg>
+    EXCLUSIVO PARA SUSCRIPTORES
+</div>        </h2>
+    
+    
+
+</article>
+
+<article class="art-02 m autor  nota-cerrada toi8454 nid2323656" data-pos="8454" data-id="2323656" data-notaid="2323656" data-source="editor">
+        <div class="content-firma">
+            <a class="figure" href="/politica/en-busca-de-resultados-guzman-sera-superministro-nid2323656">
+                <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" srcset="//bucket3.glanacion.com/anexos/fotos/47/2279647h320.png" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" srcset="//bucket3.glanacion.com/anexos/fotos/47/2279647h320.png" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" srcset="//bucket3.glanacion.com/anexos/fotos/47/2279647h300.png" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" srcset="//bucket3.glanacion.com/anexos/fotos/47/2279647h300.png" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" srcset="//bucket3.glanacion.com/anexos/fotos/47/2279647h425.png" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" srcset="//bucket3.glanacion.com/anexos/fotos/47/2279647h225.png" class="img-mobile-sm" alt="imagen-destacada">
+    <img alt="imagen-destacada">
+                </picture>
+            </a>
+            <h3 class="content-nombre">
+                <a href="/politica/en-busca-de-resultados-guzman-sera-superministro-nid2323656">
+                    Claudio Jacquelin
+                </a>
+            </h3>
+        </div>
+        <h2 class="content-titulo">
+            <a href="/politica/en-busca-de-resultados-guzman-sera-superministro-nid2323656">
+                En busca de resultados, Mart&#237;n Guzm&#225;n ser&#225; superministro
+            </a>
+<div class="content-premium">
+    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="13" viewbox="0 0 11 13">
+        <path fill="#000" fill-rule="nonzero" d="M9.97 5.926a.821.821 0 0 0-.6-.248h-.284v-1.7a3.824 3.824 0 0 0-1.171-2.8 3.941 3.941 0 0 0-5.606 0 3.824 3.824 0 0 0-1.171 2.8v1.7H.852A.848.848 0 0 0 0 6.53v5.109a.848.848 0 0 0 .852.852h8.516a.848.848 0 0 0 .852-.852v-5.11a.821.821 0 0 0-.25-.603zm-2.59-.248H2.839v-1.7a2.188 2.188 0 0 1 .665-1.606 2.27 2.27 0 0 1 3.211 0c.434.42.675 1.002.665 1.606v1.7z"></path>
+    </svg>
+    EXCLUSIVO PARA SUSCRIPTORES
+</div>        </h2>
+    
+    
+
+</article>
+
+<article class="art-03 m autor toi8455 nid2323715" data-pos="8455" data-id="2323715" data-notaid="2323715" data-source="editor">
+        <div class="content-firma">
+            <a class="figure" href="/politica/los-pormenores-del-cruce-sergio-berni-alberto-nid2323715">
+                <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" srcset="//bucket1.glanacion.com/anexos/fotos/70/3036170h320.png" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" srcset="//bucket1.glanacion.com/anexos/fotos/70/3036170h320.png" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" srcset="//bucket1.glanacion.com/anexos/fotos/70/3036170h300.png" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" srcset="//bucket1.glanacion.com/anexos/fotos/70/3036170h300.png" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" srcset="//bucket1.glanacion.com/anexos/fotos/70/3036170h425.png" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" srcset="//bucket1.glanacion.com/anexos/fotos/70/3036170h225.png" class="img-mobile-sm" alt="imagen-destacada">
+    <img alt="imagen-destacada">
+                </picture>
+            </a>
+            <h3 class="content-nombre">
+                <a href="/politica/los-pormenores-del-cruce-sergio-berni-alberto-nid2323715">
+                    Mart&#237;n Rodr&#237;guez Yebra
+                </a>
+            </h3>
+        </div>
+        <h2 class="content-titulo">
+            <a href="/politica/los-pormenores-del-cruce-sergio-berni-alberto-nid2323715">
+                Pormenores del cruce entre Berni y Alberto Fern&#225;ndez
+            </a>
+        </h2>
+    
+    
+
+</article>
+
+<article class="art-04 m autor toi8456 nid2323706" data-pos="8456" data-id="2323706" data-notaid="2323706" data-source="editor">
+        <div class="content-firma">
+            <a class="figure" href="/opinion/gastos-inteligentes-contraofensiva-al-consumismo-nid2323706">
+                <picture class="content-picture">
+
+    <source media="(min-width: 86.250em)" srcset="//bucket2.glanacion.com/anexos/fotos/95/2749095h320.png" class="img-desktop" alt="imagen-destacada">
+    <source media="(min-width: 64.000em)" srcset="//bucket2.glanacion.com/anexos/fotos/95/2749095h320.png" class="img-desktop-sm" alt="imagen-destacada">
+    <source media="(min-width: 54.000em)" srcset="//bucket2.glanacion.com/anexos/fotos/95/2749095h300.png" class="img-tablet" alt="imagen-destacada">
+    <source media="(min-width: 42.000em)" srcset="//bucket2.glanacion.com/anexos/fotos/95/2749095h300.png" class="img-tablet-sm" alt="imagen-destacada">
+    <source media="(min-width: 22.500em)" srcset="//bucket2.glanacion.com/anexos/fotos/95/2749095h425.png" class="img-mobile" alt="imagen-destacada">
+    <source media="(min-width: 20.000em)" srcset="//bucket2.glanacion.com/anexos/fotos/95/2749095h225.png" class="img-mobile-sm" alt="imagen-destacada">
+    <img alt="imagen-destacada">
+                </picture>
+            </a>
+            <h3 class="content-nombre">
+                <a href="/opinion/gastos-inteligentes-contraofensiva-al-consumismo-nid2323706">
+                    Nicol&#225;s Litvinoff
+                </a>
+            </h3>
+        </div>
+        <h2 class="content-titulo">
+            <a href="/opinion/gastos-inteligentes-contraofensiva-al-consumismo-nid2323706">
+                Gastos inteligentes: la contraofensiva al consumismo
+            </a>
+        </h2>
+    
+    
+
+</article>
+
+        </section>
+
+
+<section id="editoriales" class="content-editoriales" data-is-block="true" data-block-name="h_columnistas-2" data-diagramacion-id="0">
+    <h3>
+        <a href="/tema/editorial-tid54796">Editoriales</a>
+    </h3>
+
+<article class="art-01 xs autor toi8457 nid2323689" data-pos="8457" data-id="2323689" data-notaid="2323689" data-source="editor">
+    <h2 class="content-titulo">
+        <a href="/editoriales/por-una-ciudad-con-mas-arboles-nid2323689">
+            Por una ciudad con m&#225;s &#225;rboles
+        </a>
+    </h2>
+</article></section>    </div>
+
+
+        
+
+
+
+<section data-module="grillaHoy" data-module-js="//static.glanacion.com/v2/ln/js/module/home-grilla-hoy-db3d33c.min.js" id="hoy" class="content-hoy  place-29 " data-is-block="true" data-block-name="h_titulares-2" data-diagramacion-id="0"></section>
+        
+<section data-module="historias" data-module-js="//static.glanacion.com/v2/ln/js/module/home-historias-1caa0cd.min.js" id="historias" class="content-historia place-30 " data-is-block="true" data-block-name="h_titulares-3" data-diagramacion-id="0"></section>
+
+        <div class="content-bnhistoria place-31 " id="middle1_dsk">
+        </div>
+        <div class="content-bnhistoria place-31 " id="caja6_mob">
+        </div>
+        <div class="content-bnhistoria place-31 " id="middle2_tab">
+        </div>
+
+
+
+        
+<section data-module="que-sigo" data-module-js="//static.glanacion.com/v2/ln/js/module/home-lo-que-sigo-e7e43fe.min.js" id="loqueseguis" class="content-loqueseguis place-32 " data-is-block="true" data-block-name="h_que-sigo" data-diagramacion-id="0"></section>
+
+
+        
+
+
+<section data-module="club" data-module-js="//static.glanacion.com/v2/ln/js/module/home-club-ln-cfe7f5a.min.js" id="club" class="content-club place-33 " data-is-block="true" data-block-name="h_promoClubLnEnHome" data-diagramacion-id="0"></section>
+
+        
+<section data-module="masLeidasSitio" data-module-js="//static.glanacion.com/v2/ln/js/module/home-mas-leidas-6c3d1ca.min.js" id="masLeidasSitio" class="content-ranking place-34 " data-is-block="true" data-block-name="h_masLeidasSitio" data-diagramacion-id="0"></section>
+
+        
+            <div data-module="tema_3" class="place-41 "></div>
+                    <div data-module="comercial_1" class="place-42 "></div>
+        
+
+        <div data-module="categoria_1" data-module-js="//static.glanacion.com/v2/ln/js/module/home-categoria-1-b40d2fb.min.js" class="place-43 "></div>
+                <div data-module="tema_4" class="place-44 "></div>
+                <div data-module="tema_5" class="place-45 "></div>
+        <div data-module="categoria_2" data-module-js="//static.glanacion.com/v2/ln/js/module/home-categoria-2-34b9f97.min.js" class="place-46 "></div>
+                <div class="caja8" id="caja8_mob">
+
+                </div>
+                <div data-module="tema_6" class="place-47 "></div>
+        <div data-module="categoria_3" data-module-js="//static.glanacion.com/v2/ln/js/module/home-categoria-3-328e734.min.js" class="place-48 "></div>
+                <div data-module="tema_7" class="place-49 "></div>
+        <div data-module="categoria_4" data-module-js="//static.glanacion.com/v2/ln/js/module/home-categoria-4-91cf998.min.js" class="place-50 "></div>
+
+
+
+        
+<section data-module="tePuedeInteresar" data-module-js="//static.glanacion.com/v2/ln/js/module/home-sugerencias-liftigniter-8eb6fa9.min.js" id="caja-8notas" class="content-caja8notas tePuedeInteresar place-51 " data-is-block="true" data-diagramacion="0" data-block-name="h_sugerencias"></section>
+
+        
+<div id="notificacion-modal" class="notificacion-modal">
+    <div class="logo">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="718px" height="77px" viewbox="0 0 718 77" enable-background="new 0 0 718 77" xml:space="preserve">
+        <g>
+        <path d="M65.001,49.539c0,16.418-12.178,20.676-27.445,20.676h-2.734V7.918h12.803V2.959H1.15v4.959h11.623v62.297H1.15v4.964
+                                h69.598V46.427h-5.746V49.539z"></path>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <path d="M125.537,3.069h-8.705L87.087,64.1c-1.721,3.392-4.396,6.115-9.939,6.115h-2.351v4.964h27.898v-4.964H97.65
+                                c-2.926,0-5.469-0.372-5.469-3.757c0-1.146,0.598-2.252,1.025-3.078l3.98-8.318h30.166l7.572,15.153h-11.139v4.964h45.971v-4.964
+                                h-9.664L125.537,3.069z M99.599,50.14l12.163-24.51h0.991l12.18,24.51H99.599z"></path>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <path d="M301.664,2.959h-28.69v4.959h3.466c5.786,0,8.93,1.896,8.93,5.83v31.88h-0.266L248.087,2.959h-33.571v4.959h1.982
+                                c4.362,0,8.819,3.177,8.819,8.075v46.852c0,6.247-3.797,7.37-7.838,7.37h-1.445h-1.921v4.964h28.634v-4.964h-2.246
+                                c-7.264,0-10.153-0.991-10.153-6.835V17.021h0.263l50.272,58.158h9.585V13.43c0-2.574,2.439-5.512,8.377-5.512h2.818V2.959z"></path>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <path d="M351.055,3.069h-8.732L312.548,64.1c-1.684,3.392-4.377,6.115-9.937,6.115h-2.36v4.964h27.988v-4.964h-5.146
+                                c-2.899,0-5.433-0.372-5.433-3.757c0-1.146,0.609-2.252,1.008-3.078l4.005-8.318h30.209l7.507,15.153h-11.137v4.964h45.954v-4.964
+                                h-9.646L351.055,3.069z M325.123,50.14l12.114-24.51h1.04l12.125,24.51H325.123z"></path>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <path d="M439.029,71.773c-17.453,0-20.705-15.069-20.705-32.594c0-18.248,3.611-33.132,21.137-33.132
+                                c14.004,0,19.795,12.213,21.924,22.639h5.701V3.069h-3.787c-0.117,2.191-0.748,4.151-3.625,4.151c-2.824,0-8.229-6.1-23.582-6.1
+                                c-20.635,0-41.961,17.326-41.961,38.059c0,21.049,22.047,37.82,43.729,37.82c16.932,0,30.016-9.829,30.016-27.461h-6.002
+                                C461.873,62.377,452.666,71.773,439.029,71.773z"></path>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <polygon points="478.668,7.918 490.299,7.918 490.299,70.215 478.668,70.215 478.668,75.179 523.994,75.179 523.994,70.215
+                                512.311,70.215 512.311,7.918 523.994,7.918 523.994,2.959 478.668,2.959 	"></polygon>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <path d="M576.51,1.121c-21.391,0-43.041,16.622-43.041,37.949c0,21.344,21.65,37.93,43.041,37.93
+                                c21.273,0,43.301-16.586,43.301-37.93C619.811,17.743,597.783,1.121,576.51,1.121z M576.611,72.093
+                                c-16.943,0-19.162-16.312-19.162-33.022c0-16.804,2.293-33.022,19.162-33.022c17.004,0,19.193,16.087,19.193,33.022
+                                C595.805,55.891,593.615,72.093,576.611,72.093z"></path>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <path d="M685.438,2.959v4.959h3.512c5.76,0,8.898,1.896,8.898,5.83v31.88h-0.33L660.529,2.959h-33.568v4.959h1.986
+                                c4.385,0,8.859,3.177,8.859,8.075v46.852c0,6.247-3.795,7.37-7.816,7.37h-1.428h-1.957v4.964h28.592v-4.964h-2.254
+                                c-7.316,0-10.15-0.991-10.15-6.835V17.021h0.238l50.281,58.158h9.588V13.43c0-2.574,2.508-5.512,8.404-5.512h2.846V2.959H685.438z"></path>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </g>
+        </svg>
+    </div>
+    <p class="mens">¿Querés recibir notificaciones de alertas?</p>
+    <div class="btns">
+        <button type="button" id="notificacion-no">No, gracias</button>
+        <button type="button" id="notificacion-si">Aceptar</button>
+    </div>
+</div> 
+<div id="notificacion-error-modal" class="notificacion-modal">
+    <div class="logo">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="718px" height="77px" viewbox="0 0 718 77" enable-background="new 0 0 718 77" xml:space="preserve">
+        <g>
+        <path d="M65.001,49.539c0,16.418-12.178,20.676-27.445,20.676h-2.734V7.918h12.803V2.959H1.15v4.959h11.623v62.297H1.15v4.964
+                                h69.598V46.427h-5.746V49.539z"></path>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <path d="M125.537,3.069h-8.705L87.087,64.1c-1.721,3.392-4.396,6.115-9.939,6.115h-2.351v4.964h27.898v-4.964H97.65
+                                c-2.926,0-5.469-0.372-5.469-3.757c0-1.146,0.598-2.252,1.025-3.078l3.98-8.318h30.166l7.572,15.153h-11.139v4.964h45.971v-4.964
+                                h-9.664L125.537,3.069z M99.599,50.14l12.163-24.51h0.991l12.18,24.51H99.599z"></path>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <path d="M301.664,2.959h-28.69v4.959h3.466c5.786,0,8.93,1.896,8.93,5.83v31.88h-0.266L248.087,2.959h-33.571v4.959h1.982
+                                c4.362,0,8.819,3.177,8.819,8.075v46.852c0,6.247-3.797,7.37-7.838,7.37h-1.445h-1.921v4.964h28.634v-4.964h-2.246
+                                c-7.264,0-10.153-0.991-10.153-6.835V17.021h0.263l50.272,58.158h9.585V13.43c0-2.574,2.439-5.512,8.377-5.512h2.818V2.959z"></path>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <path d="M351.055,3.069h-8.732L312.548,64.1c-1.684,3.392-4.377,6.115-9.937,6.115h-2.36v4.964h27.988v-4.964h-5.146
+                                c-2.899,0-5.433-0.372-5.433-3.757c0-1.146,0.609-2.252,1.008-3.078l4.005-8.318h30.209l7.507,15.153h-11.137v4.964h45.954v-4.964
+                                h-9.646L351.055,3.069z M325.123,50.14l12.114-24.51h1.04l12.125,24.51H325.123z"></path>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <path d="M439.029,71.773c-17.453,0-20.705-15.069-20.705-32.594c0-18.248,3.611-33.132,21.137-33.132
+                                c14.004,0,19.795,12.213,21.924,22.639h5.701V3.069h-3.787c-0.117,2.191-0.748,4.151-3.625,4.151c-2.824,0-8.229-6.1-23.582-6.1
+                                c-20.635,0-41.961,17.326-41.961,38.059c0,21.049,22.047,37.82,43.729,37.82c16.932,0,30.016-9.829,30.016-27.461h-6.002
+                                C461.873,62.377,452.666,71.773,439.029,71.773z"></path>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <polygon points="478.668,7.918 490.299,7.918 490.299,70.215 478.668,70.215 478.668,75.179 523.994,75.179 523.994,70.215
+                                512.311,70.215 512.311,7.918 523.994,7.918 523.994,2.959 478.668,2.959 	"></polygon>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <path d="M576.51,1.121c-21.391,0-43.041,16.622-43.041,37.949c0,21.344,21.65,37.93,43.041,37.93
+                                c21.273,0,43.301-16.586,43.301-37.93C619.811,17.743,597.783,1.121,576.51,1.121z M576.611,72.093
+                                c-16.943,0-19.162-16.312-19.162-33.022c0-16.804,2.293-33.022,19.162-33.022c17.004,0,19.193,16.087,19.193,33.022
+                                C595.805,55.891,593.615,72.093,576.611,72.093z"></path>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <path d="M685.438,2.959v4.959h3.512c5.76,0,8.898,1.896,8.898,5.83v31.88h-0.33L660.529,2.959h-33.568v4.959h1.986
+                                c4.385,0,8.859,3.177,8.859,8.075v46.852c0,6.247-3.795,7.37-7.816,7.37h-1.428h-1.957v4.964h28.592v-4.964h-2.254
+                                c-7.316,0-10.15-0.991-10.15-6.835V17.021h0.238l50.281,58.158h9.588V13.43c0-2.574,2.508-5.512,8.404-5.512h2.846V2.959H685.438z"></path>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </g>
+        </svg>
+    </div>
+    <p class="mens">Ha ocurrido un error de conexión</p>
+    <div class="btns">
+        <button type="button" id="notificacion-error-btn">Cerrar</button>
+    </div>
+</div> 
+<div id="notificacion-modal-pwa" class="notificacion-modal">
+    <div class="logo">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="718px" height="77px" viewbox="0 0 718 77" enable-background="new 0 0 718 77" xml:space="preserve">
+        <g>
+        <path d="M65.001,49.539c0,16.418-12.178,20.676-27.445,20.676h-2.734V7.918h12.803V2.959H1.15v4.959h11.623v62.297H1.15v4.964
+                                h69.598V46.427h-5.746V49.539z"></path>
+        <path d="M125.537,3.069h-8.705L87.087,64.1c-1.721,3.392-4.396,6.115-9.939,6.115h-2.351v4.964h27.898v-4.964H97.65
+                                c-2.926,0-5.469-0.372-5.469-3.757c0-1.146,0.598-2.252,1.025-3.078l3.98-8.318h30.166l7.572,15.153h-11.139v4.964h45.971v-4.964
+                                h-9.664L125.537,3.069z M99.599,50.14l12.163-24.51h0.991l12.18,24.51H99.599z"></path>
+        <path d="M301.664,2.959h-28.69v4.959h3.466c5.786,0,8.93,1.896,8.93,5.83v31.88h-0.266L248.087,2.959h-33.571v4.959h1.982
+                                c4.362,0,8.819,3.177,8.819,8.075v46.852c0,6.247-3.797,7.37-7.838,7.37h-1.445h-1.921v4.964h28.634v-4.964h-2.246
+                                c-7.264,0-10.153-0.991-10.153-6.835V17.021h0.263l50.272,58.158h9.585V13.43c0-2.574,2.439-5.512,8.377-5.512h2.818V2.959z"></path>
+        <path d="M351.055,3.069h-8.732L312.548,64.1c-1.684,3.392-4.377,6.115-9.937,6.115h-2.36v4.964h27.988v-4.964h-5.146
+                                c-2.899,0-5.433-0.372-5.433-3.757c0-1.146,0.609-2.252,1.008-3.078l4.005-8.318h30.209l7.507,15.153h-11.137v4.964h45.954v-4.964
+                                h-9.646L351.055,3.069z M325.123,50.14l12.114-24.51h1.04l12.125,24.51H325.123z"></path>
+        <path d="M439.029,71.773c-17.453,0-20.705-15.069-20.705-32.594c0-18.248,3.611-33.132,21.137-33.132
+                                c14.004,0,19.795,12.213,21.924,22.639h5.701V3.069h-3.787c-0.117,2.191-0.748,4.151-3.625,4.151c-2.824,0-8.229-6.1-23.582-6.1
+                                c-20.635,0-41.961,17.326-41.961,38.059c0,21.049,22.047,37.82,43.729,37.82c16.932,0,30.016-9.829,30.016-27.461h-6.002
+                                C461.873,62.377,452.666,71.773,439.029,71.773z"></path>
+        <polygon points="478.668,7.918 490.299,7.918 490.299,70.215 478.668,70.215 478.668,75.179 523.994,75.179 523.994,70.215
+                                512.311,70.215 512.311,7.918 523.994,7.918 523.994,2.959 478.668,2.959 	"></polygon>
+        <path d="M576.51,1.121c-21.391,0-43.041,16.622-43.041,37.949c0,21.344,21.65,37.93,43.041,37.93
+                                c21.273,0,43.301-16.586,43.301-37.93C619.811,17.743,597.783,1.121,576.51,1.121z M576.611,72.093
+                                c-16.943,0-19.162-16.312-19.162-33.022c0-16.804,2.293-33.022,19.162-33.022c17.004,0,19.193,16.087,19.193,33.022
+                                C595.805,55.891,593.615,72.093,576.611,72.093z"></path>
+        <path d="M685.438,2.959v4.959h3.512c5.76,0,8.898,1.896,8.898,5.83v31.88h-0.33L660.529,2.959h-33.568v4.959h1.986
+                                c4.385,0,8.859,3.177,8.859,8.075v46.852c0,6.247-3.795,7.37-7.816,7.37h-1.428h-1.957v4.964h28.592v-4.964h-2.254
+                                c-7.316,0-10.15-0.991-10.15-6.835V17.021h0.238l50.281,58.158h9.588V13.43c0-2.574,2.508-5.512,8.404-5.512h2.846V2.959H685.438z"></path>
+            </g>
+        </svg>
+    </div>
+    <p class="mens">Descargá la aplicación de LA NACION. Es rápida y liviana.</p>
+    <div class="btns">
+        <button type="button" id="notificacion-pwa-no">No, gracias</button>
+        <button type="button" id="notificacion-pwa-si">Aceptar</button>
+    </div>
+</div> 
+        <ul class="links-actualidad">
+                <li>
+                    <a href="/tema/banda-de-los-monos-tid65234">BANDA DE LOS MONOS</a>
+                </li>
+                <li>
+                    <a href="/tema/publicidad-tid65451">PUBLICIDAD</a>
+                </li>
+                <li>
+                    <a href="/tema/liga-de-espana-tid46800">LIGA DE ESPA&#209;A</a>
+                </li>
+                <li>
+                    <a href="/tema/deuda-oficial-tid58019">DEUDA OFICIAL</a>
+                </li>
+                <li>
+                    <a href="/tema/verano-2020-tid67374">VERANO 2020</a>
+                </li>
+                <li>
+                    <a href="/tema/inseguridad-vial-tid46824">INSEGURIDAD VIAL</a>
+                </li>
+                <li>
+                    <a href="/tema/estrellas-en-un-flash-tid674">ESTRELLAS EN UN FLASH</a>
+                </li>
+                <li>
+                    <a href="/tema/policia-de-la-ciudad-tid65397">POLIC&#205;A DE LA CIUDAD</a>
+                </li>
+                <li>
+                    <a href="/tema/propiedades-tid46876">PROPIEDADES</a>
+                </li>
+                <li>
+                    <a href="/tema/universidad-torcuato-di-tella-tid59121">UNIVERSIDAD TORCUATO DI TELLA</a>
+                </li>
+        </ul>
+    </main>
+
+
+<footer id="footer" data-module="footer" data-module-js="//static.glanacion.com/v2/ln/js/module/home-links-footer-6280a25.min.js"></footer>
+
+
+
+    
+    <iframe width="0" height="0" id="iLogout" name="iLogout"></iframe>
+    
+    <noscript>
+    <img src="http://b.scorecardresearch.com/p?c1=2&amp;c2=6906398&amp;cv=2.0&amp;cj=1">
+</noscript>
+<script>
+    var _comscore = _comscore || [];
+    _comscore.push({ c1: "2", c2: "6906398" });
+    (function() {
+        var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+        s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+        el.parentNode.insertBefore(s, el);
+    })();
+</script>
+    <script type="text/javascript" id="">
+    (function (w, d, s, p, v, e, r) {
+    w['$igniter_var'] = v; w[v] = w[v] || function () {
+        (w[v].q = w[v].q || []).push(
+            arguments)
+    }; w[v].l = 1 * new Date(); e = d.createElement(s), r = d.getElementsByTagName(s)[0]; e.async = 1;
+        e.src = p + '?ts=' + (+new Date() / 3600000 | 0);
+        r.parentNode.insertBefore(e, r)
+    })(window, document, 'script', '//cdn.petametrics.com/8561ps8ov66e7mim.js', '$p');
+
+    var customConfig = {
+        config: {
+            inventory: {
+                mandatoryOpenGraphFeatures: ["title", "type"],
+                features: [{
+                    name: "id",
+                    type: "attribute",
+                    selector: "link[rel=canonical]",
+                    attribute: "href",
+                    transform: function (value) {
+                        return value.replace('https://www.lanacion.com.ar/', '').split('-')[0];
+                    }
+                }]
+            },
+            sdk: {
+                requestFields: ['url', 'title', 'image', 'id']
+            }
+        }
+    }
+
+    $p("init", "8561ps8ov66e7mim", customConfig);
+
+    if (dataLayer[0].usuarioLogeado !== "no") {
+        $p("setUserId", dataLayer[0].userId);
+    }
+
+    $p("send", "pageview");
+</script>
+
+<div id="notificacion-modal-pwa" class="notificacion-modal">
+    <div class="logo">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="718px" height="77px" viewbox="0 0 718 77" enable-background="new 0 0 718 77" xml:space="preserve">
+        <g>
+        <path d="M65.001,49.539c0,16.418-12.178,20.676-27.445,20.676h-2.734V7.918h12.803V2.959H1.15v4.959h11.623v62.297H1.15v4.964
+                                h69.598V46.427h-5.746V49.539z"></path>
+        <path d="M125.537,3.069h-8.705L87.087,64.1c-1.721,3.392-4.396,6.115-9.939,6.115h-2.351v4.964h27.898v-4.964H97.65
+                                c-2.926,0-5.469-0.372-5.469-3.757c0-1.146,0.598-2.252,1.025-3.078l3.98-8.318h30.166l7.572,15.153h-11.139v4.964h45.971v-4.964
+                                h-9.664L125.537,3.069z M99.599,50.14l12.163-24.51h0.991l12.18,24.51H99.599z"></path>
+        <path d="M301.664,2.959h-28.69v4.959h3.466c5.786,0,8.93,1.896,8.93,5.83v31.88h-0.266L248.087,2.959h-33.571v4.959h1.982
+                                c4.362,0,8.819,3.177,8.819,8.075v46.852c0,6.247-3.797,7.37-7.838,7.37h-1.445h-1.921v4.964h28.634v-4.964h-2.246
+                                c-7.264,0-10.153-0.991-10.153-6.835V17.021h0.263l50.272,58.158h9.585V13.43c0-2.574,2.439-5.512,8.377-5.512h2.818V2.959z"></path>
+        <path d="M351.055,3.069h-8.732L312.548,64.1c-1.684,3.392-4.377,6.115-9.937,6.115h-2.36v4.964h27.988v-4.964h-5.146
+                                c-2.899,0-5.433-0.372-5.433-3.757c0-1.146,0.609-2.252,1.008-3.078l4.005-8.318h30.209l7.507,15.153h-11.137v4.964h45.954v-4.964
+                                h-9.646L351.055,3.069z M325.123,50.14l12.114-24.51h1.04l12.125,24.51H325.123z"></path>
+        <path d="M439.029,71.773c-17.453,0-20.705-15.069-20.705-32.594c0-18.248,3.611-33.132,21.137-33.132
+                                c14.004,0,19.795,12.213,21.924,22.639h5.701V3.069h-3.787c-0.117,2.191-0.748,4.151-3.625,4.151c-2.824,0-8.229-6.1-23.582-6.1
+                                c-20.635,0-41.961,17.326-41.961,38.059c0,21.049,22.047,37.82,43.729,37.82c16.932,0,30.016-9.829,30.016-27.461h-6.002
+                                C461.873,62.377,452.666,71.773,439.029,71.773z"></path>
+        <polygon points="478.668,7.918 490.299,7.918 490.299,70.215 478.668,70.215 478.668,75.179 523.994,75.179 523.994,70.215
+                                512.311,70.215 512.311,7.918 523.994,7.918 523.994,2.959 478.668,2.959 	"></polygon>
+        <path d="M576.51,1.121c-21.391,0-43.041,16.622-43.041,37.949c0,21.344,21.65,37.93,43.041,37.93
+                                c21.273,0,43.301-16.586,43.301-37.93C619.811,17.743,597.783,1.121,576.51,1.121z M576.611,72.093
+                                c-16.943,0-19.162-16.312-19.162-33.022c0-16.804,2.293-33.022,19.162-33.022c17.004,0,19.193,16.087,19.193,33.022
+                                C595.805,55.891,593.615,72.093,576.611,72.093z"></path>
+        <path d="M685.438,2.959v4.959h3.512c5.76,0,8.898,1.896,8.898,5.83v31.88h-0.33L660.529,2.959h-33.568v4.959h1.986
+                                c4.385,0,8.859,3.177,8.859,8.075v46.852c0,6.247-3.795,7.37-7.816,7.37h-1.428h-1.957v4.964h28.592v-4.964h-2.254
+                                c-7.316,0-10.15-0.991-10.15-6.835V17.021h0.238l50.281,58.158h9.588V13.43c0-2.574,2.508-5.512,8.404-5.512h2.846V2.959H685.438z"></path>
+            </g>
+        </svg>
+    </div>
+    <p class="mens">Descargá la aplicación de LA NACION. Es rápida y liviana.</p>
+    <div class="btns">
+        <button type="button" id="notificacion-pwa-no">No, gracias</button>
+        <button type="button" id="notificacion-pwa-si">Aceptar</button>
+    </div>
+</div> 
+    <script src="//static.glanacion.com/v2/ln/js/commons-7074cf7.min.js"></script>
+    <script src="//static.glanacion.com/v2/ln/js/home-fff45e3.min.js"></script>
+    
+    <script src="//www.lanacion.com.ar/apw.js?v=3"></script>
+    <script src="//www.lanacion.com.ar/apw.js?f=mod&amp;v=3"></script>
+    <div data-bannerdisabled="False"></div>
+    <div data-bannerisdfp="True"></div>
+</body>
+</html>

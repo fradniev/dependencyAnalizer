@@ -50,5 +50,15 @@ const DependencyAnalizer = {
     contentLengthWeb: function(html){
         return Buffer.byteLength(html, 'utf8');
     },
+    contentLengthLocal: function(filepath){
+        let stats = fs.statSync(this.correctFilePath(filepath));
+        return stats["size"];
+    },
+    searchHtmlLocal: function(filepath) {
+        return fs.readFileSync(this.correctFilePath(filepath), "utf8").toString();
+    },
+    correctFilePath: function(filepath) {
+        return filepath.replace("~","./sites").trim();
+    },
 }
 module.exports = DependencyAnalizer;

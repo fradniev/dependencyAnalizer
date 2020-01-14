@@ -1,13 +1,14 @@
 const dependencyAnalizer = require("./dependencyAnalizer");
 let page;
 start = async() =>{
-    page = await dependencyAnalizer.preparePuppeteer("facebook.com");
-    let html = await dependencyAnalizer.searchHtmlWeb(page);
-    console.log(dependencyAnalizer.contentLengthWeb(html));
-    await dependencyAnalizer.closePuppeteer();
-    dependencyAnalizer.readHtmlCsv().then((linksCsv)=>{
-        console.log(linksCsv);
+    let links;
+    await dependencyAnalizer.readHtmlCsv().then((linksCsv)=>{
+        links = linksCsv;
     });
+    page = await dependencyAnalizer.preparePuppeteer(links[2].Link);
+    await dependencyAnalizer.closePuppeteer();
+    let html = dependencyAnalizer.searchHtmlLocal(links[0].Link);
+    console.log(dependencyAnalizer.contentLengthLocal(links[0].Link));
 
 }
 start();
