@@ -94,5 +94,52 @@ const DependencyAnalizer = {
             return "";
         }
     },
+
+    iterateLinks: async function(links){
+        let results = {
+            dependenciesFrequency : {},
+            dependenciesOrigin : [],
+            siteContentLength : {},
+        }
+        let dependenciesCheck = [];
+        let dependency = "";
+        for (let i = 0; i < links.length; i++) {
+            let htmlContent = "";
+            let contentLength = 0;
+            if(links[i].Link.indexOf("http")!=-1){
+                page = await this.preparePuppeteer(links[i].Link);
+                htmlContent = await this.searchHtmlWeb(page);
+                contentLength = this.contentLengthWeb(htmlContent);
+            } else {
+                htmlContent = this.searchHtmlLocal(links[i].Link);
+                contentLength = this.contentLengthLocal(links[i].Link);
+            }
+            results.siteContentLength[links[i].Name] = contentLength;
+            try {
+                let scripts= this.getScripts(htmlContent);
+                for (let j = 0; j < scripts.length; j++) {
+                    if(scripts[j].indexOf(".js")!=-1){
+                        let srcString = this.getSrcString(scripts[j]);
+                        dependency = this.getJsName(srcString);
+                        if(dependenciesCheck.includes(dependency) && dependency != ""){
+                            results.dependenciesFrequency[dependency] += 1;
+                        } else if(dependency != ""){
+                            results.dependenciesFrequency[dependency] = 1;
+                            let dependencyObject = {};
+                            dependencyObject[links[i].Name] = dependency;
+                            results.dependenciesOrigin.push(dependencyObject);
+                            dependenciesCheck.push(dependency);
+                        }
+                    }
+                }
+            } catch (error) {
+                console.log(error)
+            }
+            if(links[i].Link.indexOf("http")!=-1){
+                await this.closePuppeteer();
+            }
+        }
+        return results;
+    }
 }
 module.exports = DependencyAnalizer;
