@@ -9,12 +9,15 @@ let page;
 
 const pathToCsv = "./websites.csv";
 
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
 const DependencyAnalizer = {
 
     preparePuppeteer: async function(linkToPage){
-        if(linkToPage.indexOf("https") == -1 && linkToPage.indexOf("http") == -1){
-            linkToPage = "https://"+linkToPage;
-        }
+        linkToPage = this.putHttpsToLink(linkToPage);
         browser = await puppeteer.launch();
         page = await browser.newPage();
         await page.setRequestInterception(true);
@@ -22,7 +25,6 @@ const DependencyAnalizer = {
         try {
             page.on('request', (req) => req.continue());
             await page.goto(linkToPage, {waitUntil: 'networkidle2'});
-            console.log(await page.title());
         } catch(e) {
             console.log(e);
         }
@@ -140,6 +142,47 @@ const DependencyAnalizer = {
             }
         }
         return results;
-    }
+    },
+    
+    putHttpsToLink: function(linkToPage){
+        if(linkToPage.indexOf("https") == -1 && linkToPage.indexOf("http") == -1){
+            linkToPage = "https://"+linkToPage;
+        }
+        return linkToPage;
+    },
+
+    initialQuestions: function(){
+        readline.question('Would you like to use a csv? Y/N: ', (responseCsv) => {
+            if(responseCsv=="N" || responseCsv=="n"){
+                readline.question('Then would you like to use a link? Y/N: ', (responseLink) => {
+                    if(responseLink=="Y" || responseLink=="y"){
+                        readline.question('Please provide the NAME of the site: ', (name) => {
+                            readline.question('Please provide the Link of the site: ', async(link) => {
+                                link = this.putHttpsToLink(link);
+                                let dependencies = await this.iterateLinks([{Name:name,Link:link}]);
+                                console.log(dependencies);
+                                readline.close()
+                            });
+                        });
+                    } else if(responseLink=="N" || responseLink=="n"){
+                        console.log("Then have a good day!");
+                        readline.close()
+                    } else {
+                        this.initialQuestions();
+                    }
+                });
+            } else if(responseCsv=="Y" || responseCsv=="y") {
+                console.log("Ok, the program will read the csv in the base folder with the name of websites.csv");
+                this.readHtmlCsv(pathToCsv).then(async(linksCsv)=>{
+                    let dependencies = await this.iterateLinks(linksCsv);
+                    console.log(dependencies);
+                });
+                readline.close()
+            } else {
+                this.initialQuestions();
+            }
+        })
+    },
+
 }
 module.exports = DependencyAnalizer;
