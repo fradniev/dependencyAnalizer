@@ -7,6 +7,8 @@ const fs = require('fs');
 let browser;
 let page;
 
+const pathToCsv = "./websites.csv";
+
 const DependencyAnalizer = {
     preparePuppeteer: async function(linkToPage){
         if(linkToPage.indexOf("https") == -1 && linkToPage.indexOf("http") == -1){
@@ -27,6 +29,26 @@ const DependencyAnalizer = {
     },
     closePuppeteer: async function(){
         await browser.close();
+    },
+    readHtmlCsv: async function() {
+        let links = [];
+        return new Promise((resolve,reject) => {
+            fs.createReadStream(pathToCsv)
+                .pipe(csv())
+                .on('data', (data) => {
+                    links.push(data);
+                })
+                .on('end', () => {
+                    resolve(links);
+                });
+        });
+    },
+    searchHtmlWeb: async function(page) {
+        const html = await page.content();
+        return html;
+    },
+    contentLengthWeb: function(html){
+        return Buffer.byteLength(html, 'utf8');
     },
 }
 module.exports = DependencyAnalizer;
