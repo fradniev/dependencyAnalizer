@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/fradniev/dependencyAnalizer/issues"
   },
-  "homepage": "https://github.com/fradniev/dependencyAnalizer#readme"
+  "homepage": "https://github.com/fradniev/dependencyAnalizer#readme",
+  "dependencies": {
+    "csv-parser": "^2.3.2",
+    "puppeteer": "^2.0.0"
+  }
 }
