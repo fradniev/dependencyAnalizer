@@ -10,6 +10,7 @@ let page;
 const pathToCsv = "./websites.csv";
 
 const DependencyAnalizer = {
+
     preparePuppeteer: async function(linkToPage){
         if(linkToPage.indexOf("https") == -1 && linkToPage.indexOf("http") == -1){
             linkToPage = "https://"+linkToPage;
@@ -27,9 +28,11 @@ const DependencyAnalizer = {
         }
         return page;
     },
+
     closePuppeteer: async function(){
         await browser.close();
     },
+
     readHtmlCsv: async function() {
         let links = [];
         return new Promise((resolve,reject) => {
@@ -43,22 +46,53 @@ const DependencyAnalizer = {
                 });
         });
     },
+
     searchHtmlWeb: async function(page) {
         const html = await page.content();
         return html;
     },
+
     contentLengthWeb: function(html){
         return Buffer.byteLength(html, 'utf8');
     },
+
     contentLengthLocal: function(filepath){
         let stats = fs.statSync(this.correctFilePath(filepath));
         return stats["size"];
     },
+
     searchHtmlLocal: function(filepath) {
         return fs.readFileSync(this.correctFilePath(filepath), "utf8").toString();
     },
+
     correctFilePath: function(filepath) {
         return filepath.replace("~","./sites").trim();
+    },
+
+    getScripts: function (htmlContent) {
+        const pattern = /<script(.*?)\>/g;
+        let matchs = htmlContent.match(pattern);
+        if (!matchs){
+            throw new Error('Empty string');
+        } else {
+            return matchs;
+        }
+    
+    },
+
+    getSrcString: function(scriptString){
+        let srcString = scriptString.substring(scriptString.indexOf("src="));
+        srcString = srcString.substring(0,srcString.indexOf('"',6));
+        return srcString;
+    },
+    
+    getJsName: function(srcString){
+        if(srcString.indexOf(".js")!=-1){
+            let dependency = srcString.substring(srcString.lastIndexOf("/")+1,srcString.indexOf(".js")+3);
+            return dependency;
+        } else {
+            return "";
+        }
     },
 }
 module.exports = DependencyAnalizer;
